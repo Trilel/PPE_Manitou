@@ -13,10 +13,10 @@ namespace PPE_Manitou
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ManitouEntities : DbContext
+    public partial class ManitouEntities1 : DbContext
     {
-        public ManitouEntities()
-            : base("name=ManitouEntities")
+        public ManitouEntities1()
+            : base("name=ManitouEntities1")
         {
         }
     
@@ -25,9 +25,21 @@ namespace PPE_Manitou
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Etat> Etat { get; set; }
+        public virtual DbSet<FAMILLE> FAMILLE { get; set; }
+        public virtual DbSet<fichefrais> fichefrais { get; set; }
+        public virtual DbSet<FraisForfait> FraisForfait { get; set; }
         public virtual DbSet<Laboratoire> Laboratoire { get; set; }
+        public virtual DbSet<LigneFraisForfait> LigneFraisForfait { get; set; }
+        public virtual DbSet<LigneFraisHorsForfait> LigneFraisHorsForfait { get; set; }
+        public virtual DbSet<MEDECIN> MEDECIN { get; set; }
+        public virtual DbSet<MEDICAMENT> MEDICAMENT { get; set; }
+        public virtual DbSet<MOTIF> MOTIF { get; set; }
+        public virtual DbSet<OFFRIR> OFFRIR { get; set; }
+        public virtual DbSet<RAPPORT> RAPPORT { get; set; }
         public virtual DbSet<Region> Region { get; set; }
         public virtual DbSet<Secteur> Secteur { get; set; }
+        public virtual DbSet<SPECIALITE> SPECIALITE { get; set; }
         public virtual DbSet<Visiteur> Visiteur { get; set; }
     }
 }
