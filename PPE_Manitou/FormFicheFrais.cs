@@ -10,17 +10,16 @@ using System.Windows.Forms;
 
 namespace PPE_Manitou
 {
-    public partial class Form1 : Form
+    public partial class FormFicheFrais : Form
     {
-        public Form1()
+        public FormFicheFrais()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
-            Fconnex f = new Fconnex();
-            f.Show();
+
         }
     }
 }
