@@ -70,6 +70,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormMedecins.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMedecins.Designer.cs">
+      <DependentUpon>FormMedecins.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMedicaments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMedicaments.Designer.cs">
+      <DependentUpon>FormMedicaments.cs</DependentUpon>
+    </Compile>
     <Compile Include="FraisForfait.cs">
       <DependentUpon>ManitouEDMX.tt</DependentUpon>
     </Compile>
@@ -128,6 +140,9 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMedecins.resx">
+      <DependentUpon>FormMedecins.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace PPE_Manitou
 {
-    public partial class form_menu : Form
+    public partial class FormMedicaments : Form
     {
-        public form_menu()
+        public FormMedicaments()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

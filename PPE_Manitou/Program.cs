@@ -16,7 +16,7 @@ namespace PPE_Manitou
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new form_menu());
         }
     }
 }
