@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="78bb47bdf4ff41e79bfe043a5a064990" Name="Diagram1" ZoomLevel="67">
+      <Diagram DiagramId="78bb47bdf4ff41e79bfe043a5a064990" Name="Diagram1" ZoomLevel="88">
         <EntityTypeShape EntityType="ManitouModel.Etat" Width="1.5" PointX="4.5" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ManitouModel.FAMILLE" Width="1.5" PointX="10.75" PointY="16.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ManitouModel.fichefrais" Width="1.5" PointX="5.5" PointY="8.625" IsExpanded="true" />
