@@ -25,17 +25,24 @@ namespace PPE_Manitou
         {
             var LQuery = maConnexion.Visiteur.ToList()
                            .Where(x => x.identifiant == identifiant)
-                           .Select(x => new { x.idVisiteur, x.idLabo, x.nom, x.prenom, x.rue, x.ville, x.dateEmbauche, x.identifiant, x.password });
+                           .Select(x => new { x.idVisiteur, x.idLabo, x.nom, x.prenom, x.rue, x.cp, x.ville, x.dateEmbauche, x.identifiant, x.password });
             return LQuery.ToList();
         }
 
         public static bool connection(string unId , string unMdp)
         {
             bool vretour = false;
-            Object leVisiteur = VisiteurConnecte(unId); 
-            
+            var LQuery = maConnexion.Visiteur.ToList()
+                           .Where(x => x.identifiant == unId)
+                           .Select(x => new { x.identifiant, x.password });
+            foreach (var v in LQuery)
+            {
+                if(v.password == unMdp)
+                {
+                    vretour = true;
+                }
+            }
             return vretour;
         }
-
     }
 }

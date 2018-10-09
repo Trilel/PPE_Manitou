@@ -38,6 +38,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.bsVisiteur = new System.Windows.Forms.BindingSource(this.components);
             this.cbotest = new System.Windows.Forms.ComboBox();
+            this.cbotest2 = new System.Windows.Forms.ComboBox();
+            this.lblError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bsVisiteur)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,7 +81,7 @@
             // 
             // btnQuitter
             // 
-            this.btnQuitter.Location = new System.Drawing.Point(576, 264);
+            this.btnQuitter.Location = new System.Drawing.Point(497, 264);
             this.btnQuitter.Name = "btnQuitter";
             this.btnQuitter.Size = new System.Drawing.Size(64, 23);
             this.btnQuitter.TabIndex = 4;
@@ -108,16 +110,38 @@
             // cbotest
             // 
             this.cbotest.FormattingEnabled = true;
-            this.cbotest.Location = new System.Drawing.Point(219, 203);
+            this.cbotest.Location = new System.Drawing.Point(12, 120);
             this.cbotest.Name = "cbotest";
             this.cbotest.Size = new System.Drawing.Size(121, 21);
             this.cbotest.TabIndex = 7;
+            // 
+            // cbotest2
+            // 
+            this.cbotest2.FormattingEnabled = true;
+            this.cbotest2.Location = new System.Drawing.Point(12, 167);
+            this.cbotest2.Name = "cbotest2";
+            this.cbotest2.Size = new System.Drawing.Size(121, 21);
+            this.cbotest2.TabIndex = 9;
+            // 
+            // lblError
+            // 
+            this.lblError.AllowDrop = true;
+            this.lblError.AutoSize = true;
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(216, 203);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(187, 13);
+            this.lblError.TabIndex = 10;
+            this.lblError.Text = "Identifiant ou mot de passe incorrect !!";
+            this.lblError.Visible = false;
             // 
             // Fconnex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(652, 299);
+            this.ClientSize = new System.Drawing.Size(573, 299);
+            this.Controls.Add(this.lblError);
+            this.Controls.Add(this.cbotest2);
             this.Controls.Add(this.cbotest);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -146,5 +170,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.BindingSource bsVisiteur;
         private System.Windows.Forms.ComboBox cbotest;
+        private System.Windows.Forms.ComboBox cbotest2;
+        private System.Windows.Forms.Label lblError;
     }
 }
