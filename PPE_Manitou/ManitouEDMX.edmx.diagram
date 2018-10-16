@@ -17,7 +17,7 @@
         <EntityTypeShape EntityType="ManitouModel.MOTIF" Width="1.5" PointX="6" PointY="5.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ManitouModel.OFFRIR" Width="1.5" PointX="10.5" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ManitouModel.RAPPORT" Width="1.5" PointX="8.25" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ManitouModel.Region" Width="1.5" PointX="0.875" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManitouModel.Region" Width="1.5" PointX="0.5" PointY="10.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ManitouModel.Secteur" Width="1.5" PointX="2.875" PointY="15.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ManitouModel.SPECIALITE" Width="1.5" PointX="5" PointY="2.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ManitouModel.Visiteur" Width="1.5" PointX="2.625" PointY="7.125" IsExpanded="true" />

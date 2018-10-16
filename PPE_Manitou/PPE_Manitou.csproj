@@ -61,6 +61,12 @@
     <Compile Include="FAMILLE.cs">
       <DependentUpon>ManitouEDMX.tt</DependentUpon>
     </Compile>
+    <Compile Include="Fconnex.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fconnex.Designer.cs">
+      <DependentUpon>Fconnex.cs</DependentUpon>
+    </Compile>
     <Compile Include="fichefrais.cs">
       <DependentUpon>ManitouEDMX.tt</DependentUpon>
     </Compile>
@@ -70,17 +76,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMedecins.cs">
+    <Compile Include="FormFicheFrais.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMedecins.Designer.cs">
-      <DependentUpon>FormMedecins.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormMedicaments.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormMedicaments.Designer.cs">
-      <DependentUpon>FormMedicaments.cs</DependentUpon>
+    <Compile Include="FormFicheFrais.Designer.cs">
+      <DependentUpon>FormFicheFrais.cs</DependentUpon>
     </Compile>
     <Compile Include="FraisForfait.cs">
       <DependentUpon>ManitouEDMX.tt</DependentUpon>
@@ -115,6 +115,7 @@
     <Compile Include="MEDICAMENT.cs">
       <DependentUpon>ManitouEDMX.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modele.cs" />
     <Compile Include="MOTIF.cs">
       <DependentUpon>ManitouEDMX.tt</DependentUpon>
     </Compile>
@@ -138,11 +139,14 @@
     <Compile Include="Visiteur.cs">
       <DependentUpon>ManitouEDMX.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Fconnex.resx">
+      <DependentUpon>Fconnex.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMedecins.resx">
-      <DependentUpon>FormMedecins.cs</DependentUpon>
+    <EmbeddedResource Include="FormFicheFrais.resx">
+      <DependentUpon>FormFicheFrais.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
