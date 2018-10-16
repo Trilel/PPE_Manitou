@@ -28,7 +28,7 @@ namespace PPE_Manitou
             bool connecte = Modele.connection(id, mdp);
             if(connecte)
             {
-                Application.Exit();
+                this.Close();
             }else
             {
                 txtPasswd.Clear();
