@@ -21,5 +21,12 @@ namespace PPE_Manitou
         {
 
         }
+
+        private void btn_Fermer_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FormGestionDesComptesRendus f = new FormGestionDesComptesRendus();
+            f.Show();
+        }
     }
 }
