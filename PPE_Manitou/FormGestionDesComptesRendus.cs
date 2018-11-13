@@ -24,7 +24,28 @@ namespace PPE_Manitou
 
         private void btn_CompteRendus_Click(object sender, EventArgs e)
         {
+            FormRapportVisite f = new FormRapportVisite();
+            f.Show();
+            this.Close();
+        }
 
+        private void btn_Quitter_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_Visiteurs_Click(object sender, EventArgs e)
+        {
+            FormVisiterus f = new FormVisiterus();
+            f.Show();
+            this.Close();
+        }
+
+        private void btn_Practiciens_Click(object sender, EventArgs e)
+        {
+            FormPracticiens f = new FormPracticiens();
+            f.Show();
+            this.Close();
         }
     }
 }

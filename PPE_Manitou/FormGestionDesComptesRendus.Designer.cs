@@ -66,6 +66,7 @@
             this.btn_Visiteurs.Size = new System.Drawing.Size(23, 23);
             this.btn_Visiteurs.TabIndex = 2;
             this.btn_Visiteurs.UseVisualStyleBackColor = true;
+            this.btn_Visiteurs.Click += new System.EventHandler(this.btn_Visiteurs_Click);
             // 
             // btn_Practiciens
             // 
@@ -74,6 +75,7 @@
             this.btn_Practiciens.Size = new System.Drawing.Size(23, 23);
             this.btn_Practiciens.TabIndex = 3;
             this.btn_Practiciens.UseVisualStyleBackColor = true;
+            this.btn_Practiciens.Click += new System.EventHandler(this.btn_Practiciens_Click);
             // 
             // btn_Medicaments
             // 
@@ -90,6 +92,7 @@
             this.btn_Quitter.Size = new System.Drawing.Size(23, 23);
             this.btn_Quitter.TabIndex = 5;
             this.btn_Quitter.UseVisualStyleBackColor = true;
+            this.btn_Quitter.Click += new System.EventHandler(this.btn_Quitter_Click);
             // 
             // lbl_ComptesRendus
             // 

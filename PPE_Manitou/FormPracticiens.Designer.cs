@@ -224,6 +224,7 @@
             this.btn_Fermer.TabIndex = 20;
             this.btn_Fermer.Text = "Fermer";
             this.btn_Fermer.UseVisualStyleBackColor = true;
+            this.btn_Fermer.Click += new System.EventHandler(this.btn_Fermer_Click);
             // 
             // FormPracticiens
             // 
