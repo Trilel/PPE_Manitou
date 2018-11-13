@@ -26,5 +26,11 @@ namespace PPE_Manitou
         {
 
         }
+
+        private void btn_Frais_Click(object sender, EventArgs e)
+        {
+            FormFicheFrais F = new FormFicheFrais();
+            F.Show();
+        }
     }
 }

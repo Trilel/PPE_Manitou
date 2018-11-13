@@ -16,5 +16,10 @@ namespace PPE_Manitou
         {
             InitializeComponent();
         }
+
+        private void txtBoxNuit_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
