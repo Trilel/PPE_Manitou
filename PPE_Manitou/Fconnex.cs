@@ -25,15 +25,10 @@ namespace PPE_Manitou
         {
             string id = txtIdentifiant.Text;
             string mdp = txtPasswd.Text;
-            cbotest.ValueMember = "identifiant";
-            cbotest2.ValueMember = "password";
-            bsVisiteur.DataSource = Modele.listeVisiteur();
-            cbotest.DataSource = bsVisiteur;
-            cbotest2.DataSource = bsVisiteur;
             bool connecte = Modele.connection(id, mdp);
             if(connecte)
             {
-                Application.Exit();
+                this.Close();
             }else
             {
                 txtPasswd.Clear();

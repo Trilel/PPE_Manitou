@@ -192,6 +192,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EntityDeploy Include="ManitouEDMX.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -228,6 +229,8 @@
       <DependentUpon>ManitouEDMX.edmx</DependentUpon>
       <LastGenOutput>ManitouEDMX.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\logo.jpg" />
+    <None Include="Resources\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
