@@ -48,10 +48,11 @@ namespace PPE_Manitou
             this.Close();
         }
 
-        private void btn_Frais_Click(object sender, EventArgs e)
+        private void btnFrais_Click(object sender, EventArgs e)
         {
             FormFicheFrais F = new FormFicheFrais();
             F.Show();
+            this.Close();
         }
     }
 }

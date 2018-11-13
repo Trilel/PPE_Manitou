@@ -39,6 +39,8 @@
             this.lbl_Medicaments = new System.Windows.Forms.Label();
             this.lbl_Practiciens = new System.Windows.Forms.Label();
             this.lbl_Visiteurs = new System.Windows.Forms.Label();
+            this.btnFrais = new System.Windows.Forms.Button();
+            this.lblFrais = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl_GstCompteRendus
@@ -87,7 +89,7 @@
             // 
             // btn_Quitter
             // 
-            this.btn_Quitter.Location = new System.Drawing.Point(12, 258);
+            this.btn_Quitter.Location = new System.Drawing.Point(12, 306);
             this.btn_Quitter.Name = "btn_Quitter";
             this.btn_Quitter.Size = new System.Drawing.Size(23, 23);
             this.btn_Quitter.TabIndex = 5;
@@ -106,7 +108,7 @@
             // lbl_Quitter
             // 
             this.lbl_Quitter.AutoSize = true;
-            this.lbl_Quitter.Location = new System.Drawing.Point(51, 263);
+            this.lbl_Quitter.Location = new System.Drawing.Point(51, 311);
             this.lbl_Quitter.Name = "lbl_Quitter";
             this.lbl_Quitter.Size = new System.Drawing.Size(38, 13);
             this.lbl_Quitter.TabIndex = 7;
@@ -139,11 +141,31 @@
             this.lbl_Visiteurs.TabIndex = 10;
             this.lbl_Visiteurs.Text = "Visiteurs";
             // 
+            // btnFrais
+            // 
+            this.btnFrais.Location = new System.Drawing.Point(12, 256);
+            this.btnFrais.Name = "btnFrais";
+            this.btnFrais.Size = new System.Drawing.Size(23, 23);
+            this.btnFrais.TabIndex = 11;
+            this.btnFrais.UseVisualStyleBackColor = true;
+            this.btnFrais.Click += new System.EventHandler(this.btnFrais_Click);
+            // 
+            // lblFrais
+            // 
+            this.lblFrais.AutoSize = true;
+            this.lblFrais.Location = new System.Drawing.Point(51, 261);
+            this.lblFrais.Name = "lblFrais";
+            this.lblFrais.Size = new System.Drawing.Size(29, 13);
+            this.lblFrais.TabIndex = 12;
+            this.lblFrais.Text = "Frais";
+            // 
             // FormGestionDesComptesRendus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblFrais);
+            this.Controls.Add(this.btnFrais);
             this.Controls.Add(this.lbl_Visiteurs);
             this.Controls.Add(this.lbl_Practiciens);
             this.Controls.Add(this.lbl_Medicaments);
@@ -176,5 +198,7 @@
         private System.Windows.Forms.Label lbl_Medicaments;
         private System.Windows.Forms.Label lbl_Practiciens;
         private System.Windows.Forms.Label lbl_Visiteurs;
+        private System.Windows.Forms.Button btnFrais;
+        private System.Windows.Forms.Label lblFrais;
     }
 }
