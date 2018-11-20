@@ -40,6 +40,7 @@
             this.lbl_Bilan = new System.Windows.Forms.Label();
             this.txt_Bilan = new System.Windows.Forms.TextBox();
             this.btn_Details = new System.Windows.Forms.Button();
+            this.btn_Fermer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_RapportVisite
@@ -141,11 +142,22 @@
             this.btn_Details.Text = "Détails";
             this.btn_Details.UseVisualStyleBackColor = true;
             // 
+            // btn_Fermer
+            // 
+            this.btn_Fermer.Location = new System.Drawing.Point(713, 415);
+            this.btn_Fermer.Name = "btn_Fermer";
+            this.btn_Fermer.Size = new System.Drawing.Size(75, 23);
+            this.btn_Fermer.TabIndex = 12;
+            this.btn_Fermer.Text = "Fermer";
+            this.btn_Fermer.UseVisualStyleBackColor = true;
+            this.btn_Fermer.Click += new System.EventHandler(this.btn_Fermer_Click);
+            // 
             // FormRapportVisite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_Fermer);
             this.Controls.Add(this.btn_Details);
             this.Controls.Add(this.txt_Bilan);
             this.Controls.Add(this.lbl_Bilan);
@@ -180,5 +192,6 @@
         private System.Windows.Forms.Label lbl_Bilan;
         private System.Windows.Forms.TextBox txt_Bilan;
         private System.Windows.Forms.Button btn_Details;
+        private System.Windows.Forms.Button btn_Fermer;
     }
 }

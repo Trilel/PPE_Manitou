@@ -27,5 +27,12 @@ namespace PPE_Manitou
         {
             textBox1.Text = "Test";
         }
+
+        private void btn_Fermer_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FormGestionDesComptesRendus f = new FormGestionDesComptesRendus();
+            f.Show();
+        }
     }
 }

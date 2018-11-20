@@ -48,6 +48,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.binPraticien = new System.Windows.Forms.BindingSource(this.components);
             this.Medicaments = new System.Windows.Forms.BindingSource(this.components);
+            this.btn_Fermer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.binPraticien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Medicaments)).BeginInit();
             this.SuspendLayout();
@@ -201,13 +202,24 @@
             this.panel1.Size = new System.Drawing.Size(200, 100);
             this.panel1.TabIndex = 16;
             // 
-            // Form1
+            // btn_Fermer
+            // 
+            this.btn_Fermer.Location = new System.Drawing.Point(713, 415);
+            this.btn_Fermer.Name = "btn_Fermer";
+            this.btn_Fermer.Size = new System.Drawing.Size(75, 23);
+            this.btn_Fermer.TabIndex = 21;
+            this.btn_Fermer.Text = "Fermer";
+            this.btn_Fermer.UseVisualStyleBackColor = true;
+            this.btn_Fermer.Click += new System.EventHandler(this.btn_Fermer_Click);
+            // 
+            // FormVisite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::PPE_Manitou.Properties.Resources.logo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_Fermer);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button4);
@@ -225,7 +237,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
-            this.Name = "Form1";
+            this.DoubleBuffered = true;
+            this.Name = "FormVisite";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.binPraticien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Medicaments)).EndInit();
@@ -255,6 +268,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.BindingSource binPraticien;
         private System.Windows.Forms.BindingSource Medicaments;
+        private System.Windows.Forms.Button btn_Fermer;
     }
 }
 

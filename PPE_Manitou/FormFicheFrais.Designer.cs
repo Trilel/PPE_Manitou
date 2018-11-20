@@ -173,7 +173,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 218F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 185F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 187F));
             this.tableLayoutPanel2.Controls.Add(this.txtBoxRepas, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.txtBoxKm, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.MontantNuit, 2, 1);
@@ -202,14 +202,14 @@
             // 
             // txtBoxRepas
             // 
-            this.txtBoxRepas.Location = new System.Drawing.Point(178, 75);
+            this.txtBoxRepas.Location = new System.Drawing.Point(177, 75);
             this.txtBoxRepas.Name = "txtBoxRepas";
             this.txtBoxRepas.Size = new System.Drawing.Size(100, 20);
             this.txtBoxRepas.TabIndex = 16;
             // 
             // txtBoxKm
             // 
-            this.txtBoxKm.Location = new System.Drawing.Point(178, 114);
+            this.txtBoxKm.Location = new System.Drawing.Point(177, 114);
             this.txtBoxKm.Name = "txtBoxKm";
             this.txtBoxKm.Size = new System.Drawing.Size(100, 20);
             this.txtBoxKm.TabIndex = 17;
@@ -218,7 +218,7 @@
             // 
             this.MontantNuit.AutoSize = true;
             this.MontantNuit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MontantNuit.Location = new System.Drawing.Point(351, 32);
+            this.MontantNuit.Location = new System.Drawing.Point(349, 32);
             this.MontantNuit.Name = "MontantNuit";
             this.MontantNuit.Size = new System.Drawing.Size(58, 20);
             this.MontantNuit.TabIndex = 11;
@@ -228,7 +228,7 @@
             // 
             this.MontantRepas.AutoSize = true;
             this.MontantRepas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MontantRepas.Location = new System.Drawing.Point(351, 72);
+            this.MontantRepas.Location = new System.Drawing.Point(349, 72);
             this.MontantRepas.Name = "MontantRepas";
             this.MontantRepas.Size = new System.Drawing.Size(49, 20);
             this.MontantRepas.TabIndex = 12;
@@ -239,7 +239,7 @@
             this.TotNuit.AutoSize = true;
             this.TotNuit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TotNuit.ForeColor = System.Drawing.Color.Black;
-            this.TotNuit.Location = new System.Drawing.Point(571, 32);
+            this.TotNuit.Location = new System.Drawing.Point(569, 32);
             this.TotNuit.Name = "TotNuit";
             this.TotNuit.Size = new System.Drawing.Size(60, 20);
             this.TotNuit.TabIndex = 11;
@@ -250,7 +250,7 @@
             this.TotKm.AutoSize = true;
             this.TotKm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TotKm.ForeColor = System.Drawing.Color.Black;
-            this.TotKm.Location = new System.Drawing.Point(571, 111);
+            this.TotKm.Location = new System.Drawing.Point(569, 111);
             this.TotKm.Name = "TotKm";
             this.TotKm.Size = new System.Drawing.Size(60, 20);
             this.TotKm.TabIndex = 13;
@@ -268,7 +268,7 @@
             // 
             // txtBoxNuit
             // 
-            this.txtBoxNuit.Location = new System.Drawing.Point(178, 35);
+            this.txtBoxNuit.Location = new System.Drawing.Point(177, 35);
             this.txtBoxNuit.Name = "txtBoxNuit";
             this.txtBoxNuit.Size = new System.Drawing.Size(100, 20);
             this.txtBoxNuit.TabIndex = 15;
@@ -299,7 +299,7 @@
             this.label25.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(395, 6);
+            this.label25.Location = new System.Drawing.Point(393, 6);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(124, 20);
             this.label25.TabIndex = 2;
@@ -310,7 +310,7 @@
             this.label26.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(225, 6);
+            this.label26.Location = new System.Drawing.Point(224, 6);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(70, 20);
             this.label26.TabIndex = 1;
@@ -331,7 +331,7 @@
             this.lblMontantKm.AutoSize = true;
             this.lblMontantKm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMontantKm.ForeColor = System.Drawing.Color.Black;
-            this.lblMontantKm.Location = new System.Drawing.Point(351, 111);
+            this.lblMontantKm.Location = new System.Drawing.Point(349, 111);
             this.lblMontantKm.Name = "lblMontantKm";
             this.lblMontantKm.Size = new System.Drawing.Size(60, 20);
             this.lblMontantKm.TabIndex = 14;
@@ -342,7 +342,7 @@
             this.TotRepas.AutoSize = true;
             this.TotRepas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TotRepas.ForeColor = System.Drawing.Color.Black;
-            this.TotRepas.Location = new System.Drawing.Point(571, 72);
+            this.TotRepas.Location = new System.Drawing.Point(569, 72);
             this.TotRepas.Name = "TotRepas";
             this.TotRepas.Size = new System.Drawing.Size(36, 20);
             this.TotRepas.TabIndex = 12;
@@ -354,7 +354,7 @@
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(638, 6);
+            this.label22.Location = new System.Drawing.Point(637, 6);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(44, 20);
             this.label22.TabIndex = 11;
@@ -367,7 +367,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.89005F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.10995F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 193F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 197F));
             this.tableLayoutPanel1.Controls.Add(this.txtBoxMontant5, 2, 5);
             this.tableLayoutPanel1.Controls.Add(this.txtBoxLibel5, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.txtBoxD5, 0, 5);
@@ -401,91 +401,91 @@
             // 
             // txtBoxMontant5
             // 
-            this.txtBoxMontant5.Location = new System.Drawing.Point(561, 177);
+            this.txtBoxMontant5.Location = new System.Drawing.Point(557, 177);
             this.txtBoxMontant5.Name = "txtBoxMontant5";
             this.txtBoxMontant5.Size = new System.Drawing.Size(176, 20);
             this.txtBoxMontant5.TabIndex = 29;
             // 
             // txtBoxLibel5
             // 
-            this.txtBoxLibel5.Location = new System.Drawing.Point(178, 177);
+            this.txtBoxLibel5.Location = new System.Drawing.Point(177, 177);
             this.txtBoxLibel5.Name = "txtBoxLibel5";
-            this.txtBoxLibel5.Size = new System.Drawing.Size(374, 20);
+            this.txtBoxLibel5.Size = new System.Drawing.Size(371, 20);
             this.txtBoxLibel5.TabIndex = 28;
             // 
             // txtBoxD5
             // 
             this.txtBoxD5.Location = new System.Drawing.Point(6, 177);
             this.txtBoxD5.Name = "txtBoxD5";
-            this.txtBoxD5.Size = new System.Drawing.Size(163, 20);
+            this.txtBoxD5.Size = new System.Drawing.Size(162, 20);
             this.txtBoxD5.TabIndex = 27;
             // 
             // txtBoxMontant4
             // 
-            this.txtBoxMontant4.Location = new System.Drawing.Point(561, 142);
+            this.txtBoxMontant4.Location = new System.Drawing.Point(557, 142);
             this.txtBoxMontant4.Name = "txtBoxMontant4";
             this.txtBoxMontant4.Size = new System.Drawing.Size(176, 20);
             this.txtBoxMontant4.TabIndex = 26;
             // 
             // txtBoxLibel4
             // 
-            this.txtBoxLibel4.Location = new System.Drawing.Point(178, 142);
+            this.txtBoxLibel4.Location = new System.Drawing.Point(177, 142);
             this.txtBoxLibel4.Name = "txtBoxLibel4";
-            this.txtBoxLibel4.Size = new System.Drawing.Size(374, 20);
+            this.txtBoxLibel4.Size = new System.Drawing.Size(371, 20);
             this.txtBoxLibel4.TabIndex = 25;
             // 
             // txtBoxD4
             // 
             this.txtBoxD4.Location = new System.Drawing.Point(6, 142);
             this.txtBoxD4.Name = "txtBoxD4";
-            this.txtBoxD4.Size = new System.Drawing.Size(163, 20);
+            this.txtBoxD4.Size = new System.Drawing.Size(162, 20);
             this.txtBoxD4.TabIndex = 24;
             // 
             // txtBoxMontant3
             // 
-            this.txtBoxMontant3.Location = new System.Drawing.Point(561, 108);
+            this.txtBoxMontant3.Location = new System.Drawing.Point(557, 108);
             this.txtBoxMontant3.Name = "txtBoxMontant3";
             this.txtBoxMontant3.Size = new System.Drawing.Size(176, 20);
             this.txtBoxMontant3.TabIndex = 23;
             // 
             // txtBoxLibel3
             // 
-            this.txtBoxLibel3.Location = new System.Drawing.Point(178, 108);
+            this.txtBoxLibel3.Location = new System.Drawing.Point(177, 108);
             this.txtBoxLibel3.Name = "txtBoxLibel3";
-            this.txtBoxLibel3.Size = new System.Drawing.Size(374, 20);
+            this.txtBoxLibel3.Size = new System.Drawing.Size(371, 20);
             this.txtBoxLibel3.TabIndex = 22;
             // 
             // txtBoxD3
             // 
             this.txtBoxD3.Location = new System.Drawing.Point(6, 108);
             this.txtBoxD3.Name = "txtBoxD3";
-            this.txtBoxD3.Size = new System.Drawing.Size(163, 20);
+            this.txtBoxD3.Size = new System.Drawing.Size(162, 20);
             this.txtBoxD3.TabIndex = 21;
             // 
             // txtBoxMontant2
             // 
-            this.txtBoxMontant2.Location = new System.Drawing.Point(561, 75);
+            this.txtBoxMontant2.Location = new System.Drawing.Point(557, 75);
             this.txtBoxMontant2.Name = "txtBoxMontant2";
             this.txtBoxMontant2.Size = new System.Drawing.Size(176, 20);
             this.txtBoxMontant2.TabIndex = 20;
             // 
             // txtBoxLibel2
             // 
-            this.txtBoxLibel2.Location = new System.Drawing.Point(178, 75);
+            this.txtBoxLibel2.Location = new System.Drawing.Point(177, 75);
             this.txtBoxLibel2.Name = "txtBoxLibel2";
-            this.txtBoxLibel2.Size = new System.Drawing.Size(374, 20);
+            this.txtBoxLibel2.Size = new System.Drawing.Size(371, 20);
             this.txtBoxLibel2.TabIndex = 19;
             // 
             // txtBoxD2
             // 
             this.txtBoxD2.Location = new System.Drawing.Point(6, 75);
             this.txtBoxD2.Name = "txtBoxD2";
-            this.txtBoxD2.Size = new System.Drawing.Size(163, 20);
+            this.txtBoxD2.Size = new System.Drawing.Size(162, 20);
             this.txtBoxD2.TabIndex = 18;
             // 
             // txtBoxMontant1
             // 
-            this.txtBoxMontant1.Location = new System.Drawing.Point(561, 39);
+            this.txtBoxMontant1.Location = new System.Drawing.Point(557, 39);
             this.txtBoxMontant1.Name = "txtBoxMontant1";
             this.txtBoxMontant1.Size = new System.Drawing.Size(176, 20);
             this.txtBoxMontant1.TabIndex = 17;
@@ -494,14 +494,14 @@
             // 
             this.txtBoxD1.Location = new System.Drawing.Point(6, 39);
             this.txtBoxD1.Name = "txtBoxD1";
-            this.txtBoxD1.Size = new System.Drawing.Size(163, 20);
+            this.txtBoxD1.Size = new System.Drawing.Size(162, 20);
             this.txtBoxD1.TabIndex = 16;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(561, 3);
+            this.label6.Location = new System.Drawing.Point(557, 3);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(68, 20);
             this.label6.TabIndex = 13;
@@ -521,7 +521,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(178, 3);
+            this.label5.Location = new System.Drawing.Point(177, 3);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(54, 20);
             this.label5.TabIndex = 14;
@@ -529,9 +529,9 @@
             // 
             // txtBoxLibel1
             // 
-            this.txtBoxLibel1.Location = new System.Drawing.Point(178, 39);
+            this.txtBoxLibel1.Location = new System.Drawing.Point(177, 39);
             this.txtBoxLibel1.Name = "txtBoxLibel1";
-            this.txtBoxLibel1.Size = new System.Drawing.Size(374, 20);
+            this.txtBoxLibel1.Size = new System.Drawing.Size(371, 20);
             this.txtBoxLibel1.TabIndex = 15;
             // 
             // btnF
@@ -542,6 +542,7 @@
             this.btnF.TabIndex = 13;
             this.btnF.Text = "Fermer";
             this.btnF.UseVisualStyleBackColor = true;
+            this.btnF.Click += new System.EventHandler(this.btnF_Click);
             // 
             // btnOk
             // 
