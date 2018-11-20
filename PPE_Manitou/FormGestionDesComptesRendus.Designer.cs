@@ -156,9 +156,9 @@
             this.lblFrais.AutoSize = true;
             this.lblFrais.Location = new System.Drawing.Point(51, 261);
             this.lblFrais.Name = "lblFrais";
-            this.lblFrais.Size = new System.Drawing.Size(29, 13);
+            this.lblFrais.Size = new System.Drawing.Size(73, 13);
             this.lblFrais.TabIndex = 12;
-            this.lblFrais.Text = "Frais";
+            this.lblFrais.Text = "Fiche de Frais";
             // 
             // FormGestionDesComptesRendus
             // 

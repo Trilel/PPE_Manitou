@@ -21,5 +21,15 @@ namespace PPE_Manitou
         {
 
         }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnF_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
