@@ -38,7 +38,6 @@
             this.txtBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.txtBoxRepas = new System.Windows.Forms.TextBox();
-            this.txtBoxKm = new System.Windows.Forms.TextBox();
             this.MontantNuit = new System.Windows.Forms.Label();
             this.MontantRepas = new System.Windows.Forms.Label();
             this.TotNuit = new System.Windows.Forms.Label();
@@ -77,6 +76,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblAnnée = new System.Windows.Forms.Label();
+            this.cb_ListeFiche = new System.Windows.Forms.ComboBox();
+            this.btn_vueFicheFrais = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cbVehicule = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -175,7 +178,6 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 218F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 187F));
             this.tableLayoutPanel2.Controls.Add(this.txtBoxRepas, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.txtBoxKm, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.MontantNuit, 2, 1);
             this.tableLayoutPanel2.Controls.Add(this.MontantRepas, 2, 2);
             this.tableLayoutPanel2.Controls.Add(this.TotNuit, 3, 1);
@@ -190,6 +192,7 @@
             this.tableLayoutPanel2.Controls.Add(this.lblMontantKm, 2, 3);
             this.tableLayoutPanel2.Controls.Add(this.TotRepas, 3, 2);
             this.tableLayoutPanel2.Controls.Add(this.label22, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.cbVehicule, 1, 3);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(17, 151);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
@@ -206,13 +209,6 @@
             this.txtBoxRepas.Name = "txtBoxRepas";
             this.txtBoxRepas.Size = new System.Drawing.Size(100, 20);
             this.txtBoxRepas.TabIndex = 16;
-            // 
-            // txtBoxKm
-            // 
-            this.txtBoxKm.Location = new System.Drawing.Point(177, 114);
-            this.txtBoxKm.Name = "txtBoxKm";
-            this.txtBoxKm.Size = new System.Drawing.Size(100, 20);
-            this.txtBoxKm.TabIndex = 17;
             // 
             // MontantNuit
             // 
@@ -552,6 +548,7 @@
             this.btnOk.TabIndex = 14;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // label7
             // 
@@ -584,6 +581,41 @@
             this.lblAnnée.TabIndex = 17;
             this.lblAnnée.Text = "Année";
             // 
+            // cb_ListeFiche
+            // 
+            this.cb_ListeFiche.FormattingEnabled = true;
+            this.cb_ListeFiche.Location = new System.Drawing.Point(143, 540);
+            this.cb_ListeFiche.Name = "cb_ListeFiche";
+            this.cb_ListeFiche.Size = new System.Drawing.Size(121, 21);
+            this.cb_ListeFiche.TabIndex = 18;
+            // 
+            // btn_vueFicheFrais
+            // 
+            this.btn_vueFicheFrais.Location = new System.Drawing.Point(270, 540);
+            this.btn_vueFicheFrais.Name = "btn_vueFicheFrais";
+            this.btn_vueFicheFrais.Size = new System.Drawing.Size(75, 23);
+            this.btn_vueFicheFrais.TabIndex = 19;
+            this.btn_vueFicheFrais.Text = "Voir";
+            this.btn_vueFicheFrais.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(14, 543);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(123, 13);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "Liste des Fiches de Frais";
+            // 
+            // cbVehicule
+            // 
+            this.cbVehicule.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbVehicule.FormattingEnabled = true;
+            this.cbVehicule.Location = new System.Drawing.Point(198, 116);
+            this.cbVehicule.Name = "cbVehicule";
+            this.cbVehicule.Size = new System.Drawing.Size(121, 21);
+            this.cbVehicule.TabIndex = 17;
+            // 
             // FormFicheFrais
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -591,6 +623,8 @@
             this.BackgroundImage = global::PPE_Manitou.Properties.Resources.logo1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(779, 570);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.btn_vueFicheFrais);
             this.Controls.Add(this.lblAnnée);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label7);
@@ -606,6 +640,7 @@
             this.Controls.Add(this.lblNom);
             this.Controls.Add(this.lblMatricule);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.cb_ListeFiche);
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "FormFicheFrais";
             this.Text = "FormFicheFrais";
@@ -629,7 +664,6 @@
         private System.Windows.Forms.TextBox txtBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TextBox txtBoxRepas;
-        private System.Windows.Forms.TextBox txtBoxKm;
         private System.Windows.Forms.Label MontantNuit;
         private System.Windows.Forms.Label MontantRepas;
         private System.Windows.Forms.Label TotNuit;
@@ -668,5 +702,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblAnnée;
+        private System.Windows.Forms.ComboBox cb_ListeFiche;
+        private System.Windows.Forms.Button btn_vueFicheFrais;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cbVehicule;
     }
 }
