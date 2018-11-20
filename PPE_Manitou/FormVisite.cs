@@ -7,15 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+ 
 namespace PPE_Manitou
 {
-    public partial class Form1 : Form
+    public partial class FormVisite : Form
     {
-        public Form1()
+        public FormVisite()
         {
             InitializeComponent();
         }
+
 
         private void label5_Click(object sender, EventArgs e)
         {

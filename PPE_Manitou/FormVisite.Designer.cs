@@ -1,6 +1,6 @@
 ﻿namespace PPE_Manitou
 {
-    partial class Form1
+    partial class FormVisite
     {
         /// <summary>
         /// Variable nécessaire au concepteur.

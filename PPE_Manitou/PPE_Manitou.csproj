@@ -70,11 +70,17 @@
     <Compile Include="fichefrais.cs">
       <DependentUpon>ManitouEDMX.tt</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="FormMedicament.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormMedicament.Designer.cs">
+      <DependentUpon>FormMedicament.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormVisite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVisite.Designer.cs">
+      <DependentUpon>FormVisite.cs</DependentUpon>
     </Compile>
     <Compile Include="FormFicheFrais.cs">
       <SubType>Form</SubType>
@@ -142,8 +148,11 @@
     <EmbeddedResource Include="Fconnex.resx">
       <DependentUpon>Fconnex.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FormMedicament.resx">
+      <DependentUpon>FormMedicament.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVisite.resx">
+      <DependentUpon>FormVisite.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormFicheFrais.resx">
       <DependentUpon>FormFicheFrais.cs</DependentUpon>

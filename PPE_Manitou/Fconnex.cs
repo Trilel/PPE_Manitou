@@ -40,5 +40,10 @@ namespace PPE_Manitou
                 lblError.Visible = true;
             }
         }
+
+        private void Fconnex_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
