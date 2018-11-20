@@ -28,5 +28,10 @@ namespace PPE_Manitou
             FormGestionDesComptesRendus f = new FormGestionDesComptesRendus();
             f.Show();
         }
+
+        private void cbo_Chercher_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

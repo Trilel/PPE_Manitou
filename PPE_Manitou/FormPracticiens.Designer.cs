@@ -131,6 +131,7 @@
             this.cbo_Chercher.Name = "cbo_Chercher";
             this.cbo_Chercher.Size = new System.Drawing.Size(121, 21);
             this.cbo_Chercher.TabIndex = 8;
+            this.cbo_Chercher.SelectedIndexChanged += new System.EventHandler(this.cbo_Chercher_SelectedIndexChanged);
             // 
             // txt_Nom
             // 
