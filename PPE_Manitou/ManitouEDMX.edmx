@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ManitouModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ManitouModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Etat">
           <Key>
             <PropertyRef Name="id" />
@@ -23,9 +23,11 @@
           <Key>
             <PropertyRef Name="idVisiteur" />
             <PropertyRef Name="mois" />
+            <PropertyRef Name="annee" />
           </Key>
           <Property Name="idVisiteur" Type="char" MaxLength="3" Nullable="false" />
           <Property Name="mois" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="annee" Type="int" Nullable="false" />
           <Property Name="nbJustificatifs" Type="int" />
           <Property Name="montantValide" Type="decimal" Precision="10" Scale="2" />
           <Property Name="dateModif" Type="date" />
@@ -38,6 +40,8 @@
           <Property Name="id" Type="char" MaxLength="3" Nullable="false" />
           <Property Name="libelle" Type="char" MaxLength="20" />
           <Property Name="montant" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="TypeForfait" Type="char" MaxLength="2" />
+          <Property Name="idRegion" Type="int" />
         </EntityType>
         <EntityType Name="Laboratoire">
           <Key>
@@ -50,10 +54,12 @@
           <Key>
             <PropertyRef Name="idVisiteur" />
             <PropertyRef Name="mois" />
+            <PropertyRef Name="annee" />
             <PropertyRef Name="idFraisForfait" />
           </Key>
           <Property Name="idVisiteur" Type="char" MaxLength="3" Nullable="false" />
           <Property Name="mois" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="annee" Type="int" Nullable="false" />
           <Property Name="idFraisForfait" Type="char" MaxLength="3" Nullable="false" />
           <Property Name="quantite" Type="int" />
         </EntityType>
@@ -64,6 +70,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idVisiteur" Type="char" MaxLength="3" Nullable="false" />
           <Property Name="mois" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="annee" Type="int" Nullable="false" />
           <Property Name="libelle" Type="varchar" MaxLength="100" />
           <Property Name="date" Type="date" />
           <Property Name="montant" Type="decimal" Precision="10" Scale="2" />
@@ -165,7 +172,7 @@
           <Property Name="identifiant" Type="varchar" MaxLength="16" Nullable="false" />
           <Property Name="password" Type="varchar" MaxLength="128" Nullable="false" />
         </EntityType>
-        <Association Name="FK__fichefrai__idEta__1ED998B2">
+        <Association Name="FK__fichefrai__idEta__4A8310C6">
           <End Role="Etat" Type="Self.Etat" Multiplicity="0..1" />
           <End Role="fichefrais" Type="Self.fichefrais" Multiplicity="*" />
           <ReferentialConstraint>
@@ -177,7 +184,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__fichefrai__idVis__1FCDBCEB">
+        <Association Name="FK__fichefrai__idVis__4B7734FF">
           <End Role="Visiteur" Type="Self.Visiteur" Multiplicity="1" />
           <End Role="fichefrais" Type="Self.fichefrais" Multiplicity="*" />
           <ReferentialConstraint>
@@ -189,7 +196,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__LigneFrai__idFra__267ABA7A">
+        <Association Name="FK__LigneFrai__idFra__5224328E">
           <End Role="FraisForfait" Type="Self.FraisForfait" Multiplicity="1" />
           <End Role="LigneFraisForfait" Type="Self.LigneFraisForfait" Multiplicity="*" />
           <ReferentialConstraint>
@@ -201,31 +208,35 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__LigneFraisForfai__25869641">
+        <Association Name="FK__LigneFraisForfai__51300E55">
           <End Role="fichefrais" Type="Self.fichefrais" Multiplicity="1" />
           <End Role="LigneFraisForfait" Type="Self.LigneFraisForfait" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="fichefrais">
               <PropertyRef Name="idVisiteur" />
               <PropertyRef Name="mois" />
+              <PropertyRef Name="annee" />
             </Principal>
             <Dependent Role="LigneFraisForfait">
               <PropertyRef Name="idVisiteur" />
               <PropertyRef Name="mois" />
+              <PropertyRef Name="annee" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__LigneFraisHorsFo__2E1BDC42">
+        <Association Name="FK__LigneFraisHorsFo__59C55456">
           <End Role="fichefrais" Type="Self.fichefrais" Multiplicity="1" />
           <End Role="LigneFraisHorsForfait" Type="Self.LigneFraisHorsForfait" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="fichefrais">
               <PropertyRef Name="idVisiteur" />
               <PropertyRef Name="mois" />
+              <PropertyRef Name="annee" />
             </Principal>
             <Dependent Role="LigneFraisHorsForfait">
               <PropertyRef Name="idVisiteur" />
               <PropertyRef Name="mois" />
+              <PropertyRef Name="annee" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -238,6 +249,18 @@
             </Principal>
             <Dependent Role="Visiteur">
               <PropertyRef Name="idLabo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RegionFraisForfait">
+          <End Role="Region" Type="Self.Region" Multiplicity="0..1" />
+          <End Role="FraisForfait" Type="Self.FraisForfait" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="idRegion" />
+            </Principal>
+            <Dependent Role="FraisForfait">
+              <PropertyRef Name="idRegion" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -403,29 +426,33 @@
           <EntitySet Name="SPECIALITE" EntityType="Self.SPECIALITE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Travailler" EntityType="Self.Travailler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Visiteur" EntityType="Self.Visiteur" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__fichefrai__idEta__1ED998B2" Association="Self.FK__fichefrai__idEta__1ED998B2">
+          <AssociationSet Name="FK__fichefrai__idEta__4A8310C6" Association="Self.FK__fichefrai__idEta__4A8310C6">
             <End Role="Etat" EntitySet="Etat" />
             <End Role="fichefrais" EntitySet="fichefrais" />
           </AssociationSet>
-          <AssociationSet Name="FK__fichefrai__idVis__1FCDBCEB" Association="Self.FK__fichefrai__idVis__1FCDBCEB">
+          <AssociationSet Name="FK__fichefrai__idVis__4B7734FF" Association="Self.FK__fichefrai__idVis__4B7734FF">
             <End Role="Visiteur" EntitySet="Visiteur" />
             <End Role="fichefrais" EntitySet="fichefrais" />
           </AssociationSet>
-          <AssociationSet Name="FK__LigneFrai__idFra__267ABA7A" Association="Self.FK__LigneFrai__idFra__267ABA7A">
+          <AssociationSet Name="FK__LigneFrai__idFra__5224328E" Association="Self.FK__LigneFrai__idFra__5224328E">
             <End Role="FraisForfait" EntitySet="FraisForfait" />
             <End Role="LigneFraisForfait" EntitySet="LigneFraisForfait" />
           </AssociationSet>
-          <AssociationSet Name="FK__LigneFraisForfai__25869641" Association="Self.FK__LigneFraisForfai__25869641">
+          <AssociationSet Name="FK__LigneFraisForfai__51300E55" Association="Self.FK__LigneFraisForfai__51300E55">
             <End Role="fichefrais" EntitySet="fichefrais" />
             <End Role="LigneFraisForfait" EntitySet="LigneFraisForfait" />
           </AssociationSet>
-          <AssociationSet Name="FK__LigneFraisHorsFo__2E1BDC42" Association="Self.FK__LigneFraisHorsFo__2E1BDC42">
+          <AssociationSet Name="FK__LigneFraisHorsFo__59C55456" Association="Self.FK__LigneFraisHorsFo__59C55456">
             <End Role="fichefrais" EntitySet="fichefrais" />
             <End Role="LigneFraisHorsForfait" EntitySet="LigneFraisHorsForfait" />
           </AssociationSet>
           <AssociationSet Name="FK_Laboratoire" Association="Self.FK_Laboratoire">
             <End Role="Laboratoire" EntitySet="Laboratoire" />
             <End Role="Visiteur" EntitySet="Visiteur" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RegionFraisForfait" Association="Self.FK_RegionFraisForfait">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="FraisForfait" EntitySet="FraisForfait" />
           </AssociationSet>
           <AssociationSet Name="FK_SECTEUR" Association="Self.FK_SECTEUR">
             <End Role="Secteur" EntitySet="Secteur" />
@@ -476,51 +503,145 @@
             <End Role="RAPPORT" EntitySet="RAPPORT" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ManitouModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ManitouEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Etat" EntityType="ManitouModel.Etat" />
+          <EntitySet Name="FAMILLE" EntityType="ManitouModel.FAMILLE" />
+          <EntitySet Name="fichefrais" EntityType="ManitouModel.fichefrais" />
+          <EntitySet Name="FraisForfait" EntityType="ManitouModel.FraisForfait" />
+          <EntitySet Name="Laboratoire" EntityType="ManitouModel.Laboratoire" />
+          <EntitySet Name="LigneFraisForfait" EntityType="ManitouModel.LigneFraisForfait" />
+          <EntitySet Name="LigneFraisHorsForfait" EntityType="ManitouModel.LigneFraisHorsForfait" />
+          <EntitySet Name="MEDECIN" EntityType="ManitouModel.MEDECIN" />
+          <EntitySet Name="MEDICAMENT" EntityType="ManitouModel.MEDICAMENT" />
+          <EntitySet Name="MOTIF" EntityType="ManitouModel.MOTIF" />
+          <EntitySet Name="OFFRIR" EntityType="ManitouModel.OFFRIR" />
+          <EntitySet Name="RAPPORT" EntityType="ManitouModel.RAPPORT" />
+          <EntitySet Name="Region" EntityType="ManitouModel.Region" />
+          <EntitySet Name="Secteur" EntityType="ManitouModel.Secteur" />
+          <EntitySet Name="SPECIALITE" EntityType="ManitouModel.SPECIALITE" />
+          <EntitySet Name="Visiteur" EntityType="ManitouModel.Visiteur" />
+          <AssociationSet Name="FK__fichefrai__idEta__4A8310C6" Association="ManitouModel.FK__fichefrai__idEta__4A8310C6">
+            <End Role="Etat" EntitySet="Etat" />
+            <End Role="fichefrais" EntitySet="fichefrais" />
+          </AssociationSet>
+          <AssociationSet Name="medicament_fk" Association="ManitouModel.medicament_fk">
+            <End Role="FAMILLE" EntitySet="FAMILLE" />
+            <End Role="MEDICAMENT" EntitySet="MEDICAMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__fichefrai__idVis__4B7734FF" Association="ManitouModel.FK__fichefrai__idVis__4B7734FF">
+            <End Role="Visiteur" EntitySet="Visiteur" />
+            <End Role="fichefrais" EntitySet="fichefrais" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LigneFraisForfai__51300E55" Association="ManitouModel.FK__LigneFraisForfai__51300E55">
+            <End Role="fichefrais" EntitySet="fichefrais" />
+            <End Role="LigneFraisForfait" EntitySet="LigneFraisForfait" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LigneFraisHorsFo__59C55456" Association="ManitouModel.FK__LigneFraisHorsFo__59C55456">
+            <End Role="fichefrais" EntitySet="fichefrais" />
+            <End Role="LigneFraisHorsForfait" EntitySet="LigneFraisHorsForfait" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LigneFrai__idFra__5224328E" Association="ManitouModel.FK__LigneFrai__idFra__5224328E">
+            <End Role="FraisForfait" EntitySet="FraisForfait" />
+            <End Role="LigneFraisForfait" EntitySet="LigneFraisForfait" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RegionFraisForfait" Association="ManitouModel.FK_RegionFraisForfait">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="FraisForfait" EntitySet="FraisForfait" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Laboratoire" Association="ManitouModel.FK_Laboratoire">
+            <End Role="Laboratoire" EntitySet="Laboratoire" />
+            <End Role="Visiteur" EntitySet="Visiteur" />
+          </AssociationSet>
+          <AssociationSet Name="medecin_fk" Association="ManitouModel.medecin_fk">
+            <End Role="SPECIALITE" EntitySet="SPECIALITE" />
+            <End Role="MEDECIN" EntitySet="MEDECIN" />
+          </AssociationSet>
+          <AssociationSet Name="rapport_fk2" Association="ManitouModel.rapport_fk2">
+            <End Role="MEDECIN" EntitySet="MEDECIN" />
+            <End Role="RAPPORT" EntitySet="RAPPORT" />
+          </AssociationSet>
+          <AssociationSet Name="offrir_fk2" Association="ManitouModel.offrir_fk2">
+            <End Role="MEDICAMENT" EntitySet="MEDICAMENT" />
+            <End Role="OFFRIR" EntitySet="OFFRIR" />
+          </AssociationSet>
+          <AssociationSet Name="rapport_fk3" Association="ManitouModel.rapport_fk3">
+            <End Role="MOTIF" EntitySet="MOTIF" />
+            <End Role="RAPPORT" EntitySet="RAPPORT" />
+          </AssociationSet>
+          <AssociationSet Name="offrir_fk1" Association="ManitouModel.offrir_fk1">
+            <End Role="RAPPORT" EntitySet="RAPPORT" />
+            <End Role="OFFRIR" EntitySet="OFFRIR" />
+          </AssociationSet>
+          <AssociationSet Name="rapport_fk1" Association="ManitouModel.rapport_fk1">
+            <End Role="Visiteur" EntitySet="Visiteur" />
+            <End Role="RAPPORT" EntitySet="RAPPORT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SECTEUR" Association="ManitouModel.FK_SECTEUR">
+            <End Role="Secteur" EntitySet="Secteur" />
+            <End Role="Region" EntitySet="Region" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VISITEUR" Association="ManitouModel.FK_VISITEUR">
+            <End Role="Visiteur" EntitySet="Visiteur" />
+            <End Role="Region" EntitySet="Region" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VISITEURSECTEUR" Association="ManitouModel.FK_VISITEURSECTEUR">
+            <End Role="Visiteur" EntitySet="Visiteur" />
+            <End Role="Secteur" EntitySet="Secteur" />
+          </AssociationSet>
+          <AssociationSet Name="Travailler" Association="ManitouModel.Travailler">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="Visiteur" EntitySet="Visiteur" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Etat">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="id" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
           <Property Name="libelle" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="fichefrais" Relationship="Self.FK__fichefrai__idEta__1ED998B2" FromRole="Etat" ToRole="fichefrais" />
+          <NavigationProperty Name="fichefrais" Relationship="ManitouModel.FK__fichefrai__idEta__4A8310C6" FromRole="Etat" ToRole="fichefrais" />
         </EntityType>
         <EntityType Name="FAMILLE">
           <Key>
             <PropertyRef Name="idFamille" />
           </Key>
-          <Property Name="idFamille" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="libFamille" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="MEDICAMENT" Relationship="Self.medicament_fk" FromRole="FAMILLE" ToRole="MEDICAMENT" />
+          <Property Name="idFamille" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="libFamille" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MEDICAMENT" Relationship="ManitouModel.medicament_fk" FromRole="FAMILLE" ToRole="MEDICAMENT" />
         </EntityType>
         <EntityType Name="fichefrais">
           <Key>
             <PropertyRef Name="idVisiteur" />
             <PropertyRef Name="mois" />
+            <PropertyRef Name="annee" />
           </Key>
-          <Property Name="idVisiteur" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="mois" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="idVisiteur" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="mois" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="annee" Type="Int32" Nullable="false" />
           <Property Name="nbJustificatifs" Type="Int32" />
           <Property Name="montantValide" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="dateModif" Type="DateTime" Precision="0" />
           <Property Name="idEtat" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="Etat" Relationship="Self.FK__fichefrai__idEta__1ED998B2" FromRole="fichefrais" ToRole="Etat" />
-          <NavigationProperty Name="Visiteur" Relationship="Self.FK__fichefrai__idVis__1FCDBCEB" FromRole="fichefrais" ToRole="Visiteur" />
-          <NavigationProperty Name="LigneFraisForfait" Relationship="Self.FK__LigneFraisForfai__25869641" FromRole="fichefrais" ToRole="LigneFraisForfait" />
-          <NavigationProperty Name="LigneFraisHorsForfait" Relationship="Self.FK__LigneFraisHorsFo__2E1BDC42" FromRole="fichefrais" ToRole="LigneFraisHorsForfait" />
+          <NavigationProperty Name="Etat" Relationship="ManitouModel.FK__fichefrai__idEta__4A8310C6" FromRole="fichefrais" ToRole="Etat" />
+          <NavigationProperty Name="Visiteur" Relationship="ManitouModel.FK__fichefrai__idVis__4B7734FF" FromRole="fichefrais" ToRole="Visiteur" />
+          <NavigationProperty Name="LigneFraisForfait" Relationship="ManitouModel.FK__LigneFraisForfai__51300E55" FromRole="fichefrais" ToRole="LigneFraisForfait" />
+          <NavigationProperty Name="LigneFraisHorsForfait" Relationship="ManitouModel.FK__LigneFraisHorsFo__59C55456" FromRole="fichefrais" ToRole="LigneFraisHorsForfait" />
         </EntityType>
         <EntityType Name="FraisForfait">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="id" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
           <Property Name="libelle" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
           <Property Name="montant" Type="Decimal" Precision="5" Scale="2" />
-          <NavigationProperty Name="LigneFraisForfait" Relationship="Self.FK__LigneFrai__idFra__267ABA7A" FromRole="FraisForfait" ToRole="LigneFraisForfait" />
+          <Property Name="TypeForfait" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="idRegion" Type="Int32" />
+          <NavigationProperty Name="LigneFraisForfait" Relationship="ManitouModel.FK__LigneFrai__idFra__5224328E" FromRole="FraisForfait" ToRole="LigneFraisForfait" />
+          <NavigationProperty Name="Region" Relationship="ManitouModel.FK_RegionFraisForfait" FromRole="FraisForfait" ToRole="Region" />
         </EntityType>
         <EntityType Name="Laboratoire">
           <Key>
@@ -528,59 +649,62 @@
           </Key>
           <Property Name="idLabo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nomLabo" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="Visiteur" Relationship="Self.FK_Laboratoire" FromRole="Laboratoire" ToRole="Visiteur" />
+          <NavigationProperty Name="Visiteur" Relationship="ManitouModel.FK_Laboratoire" FromRole="Laboratoire" ToRole="Visiteur" />
         </EntityType>
         <EntityType Name="LigneFraisForfait">
           <Key>
             <PropertyRef Name="idVisiteur" />
             <PropertyRef Name="mois" />
+            <PropertyRef Name="annee" />
             <PropertyRef Name="idFraisForfait" />
           </Key>
-          <Property Name="idVisiteur" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="mois" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="idFraisForfait" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="idVisiteur" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="mois" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="annee" Type="Int32" Nullable="false" />
+          <Property Name="idFraisForfait" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
           <Property Name="quantite" Type="Int32" />
-          <NavigationProperty Name="fichefrais" Relationship="Self.FK__LigneFraisForfai__25869641" FromRole="LigneFraisForfait" ToRole="fichefrais" />
-          <NavigationProperty Name="FraisForfait" Relationship="Self.FK__LigneFrai__idFra__267ABA7A" FromRole="LigneFraisForfait" ToRole="FraisForfait" />
+          <NavigationProperty Name="fichefrais" Relationship="ManitouModel.FK__LigneFraisForfai__51300E55" FromRole="LigneFraisForfait" ToRole="fichefrais" />
+          <NavigationProperty Name="FraisForfait" Relationship="ManitouModel.FK__LigneFrai__idFra__5224328E" FromRole="LigneFraisForfait" ToRole="FraisForfait" />
         </EntityType>
         <EntityType Name="LigneFraisHorsForfait">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idVisiteur" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="mois" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="idVisiteur" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="mois" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="annee" Type="Int32" Nullable="false" />
           <Property Name="libelle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="date" Type="DateTime" Precision="0" />
           <Property Name="montant" Type="Decimal" Precision="10" Scale="2" />
-          <NavigationProperty Name="fichefrais" Relationship="Self.FK__LigneFraisHorsFo__2E1BDC42" FromRole="LigneFraisHorsForfait" ToRole="fichefrais" />
+          <NavigationProperty Name="fichefrais" Relationship="ManitouModel.FK__LigneFraisHorsFo__59C55456" FromRole="LigneFraisHorsForfait" ToRole="fichefrais" />
         </EntityType>
         <EntityType Name="MEDECIN">
           <Key>
             <PropertyRef Name="idMedecin" />
           </Key>
           <Property Name="idMedecin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nom" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="prenom" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="adresse" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nom" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="prenom" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="adresse" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
           <Property Name="tel" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="idSpecialite" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
           <Property Name="departement" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="SPECIALITE" Relationship="Self.medecin_fk" FromRole="MEDECIN" ToRole="SPECIALITE" />
-          <NavigationProperty Name="RAPPORT" Relationship="Self.rapport_fk2" FromRole="MEDECIN" ToRole="RAPPORT" />
+          <NavigationProperty Name="SPECIALITE" Relationship="ManitouModel.medecin_fk" FromRole="MEDECIN" ToRole="SPECIALITE" />
+          <NavigationProperty Name="RAPPORT" Relationship="ManitouModel.rapport_fk2" FromRole="MEDECIN" ToRole="RAPPORT" />
         </EntityType>
         <EntityType Name="MEDICAMENT">
           <Key>
             <PropertyRef Name="idMedicament" />
           </Key>
-          <Property Name="idMedicament" Type="String" MaxLength="12" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="nomCommercial" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="idFamille" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="composition" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="effets" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="contreIndications" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="FAMILLE" Relationship="Self.medicament_fk" FromRole="MEDICAMENT" ToRole="FAMILLE" />
-          <NavigationProperty Name="OFFRIR" Relationship="Self.offrir_fk2" FromRole="MEDICAMENT" ToRole="OFFRIR" />
+          <Property Name="idMedicament" Type="String" Nullable="false" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Name="nomCommercial" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="idFamille" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="composition" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="effets" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="contreIndications" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FAMILLE" Relationship="ManitouModel.medicament_fk" FromRole="MEDICAMENT" ToRole="FAMILLE" />
+          <NavigationProperty Name="OFFRIR" Relationship="ManitouModel.offrir_fk2" FromRole="MEDICAMENT" ToRole="OFFRIR" />
         </EntityType>
         <EntityType Name="MOTIF">
           <Key>
@@ -588,7 +712,7 @@
           </Key>
           <Property Name="idMotif" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="libMotif" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="RAPPORT" Relationship="Self.rapport_fk3" FromRole="MOTIF" ToRole="RAPPORT" />
+          <NavigationProperty Name="RAPPORT" Relationship="ManitouModel.rapport_fk3" FromRole="MOTIF" ToRole="RAPPORT" />
         </EntityType>
         <EntityType Name="OFFRIR">
           <Key>
@@ -596,10 +720,10 @@
             <PropertyRef Name="idMedicament" />
           </Key>
           <Property Name="idRapport" Type="Int32" Nullable="false" />
-          <Property Name="idMedicament" Type="String" MaxLength="12" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="idMedicament" Type="String" Nullable="false" MaxLength="12" FixedLength="true" Unicode="false" />
           <Property Name="quantite" Type="Int32" />
-          <NavigationProperty Name="MEDICAMENT" Relationship="Self.offrir_fk2" FromRole="OFFRIR" ToRole="MEDICAMENT" />
-          <NavigationProperty Name="RAPPORT" Relationship="Self.offrir_fk1" FromRole="OFFRIR" ToRole="RAPPORT" />
+          <NavigationProperty Name="MEDICAMENT" Relationship="ManitouModel.offrir_fk2" FromRole="OFFRIR" ToRole="MEDICAMENT" />
+          <NavigationProperty Name="RAPPORT" Relationship="ManitouModel.offrir_fk1" FromRole="OFFRIR" ToRole="RAPPORT" />
         </EntityType>
         <EntityType Name="RAPPORT">
           <Key>
@@ -609,12 +733,12 @@
           <Property Name="dateRapport" Type="DateTime" Precision="0" />
           <Property Name="idMotif" Type="Int32" />
           <Property Name="bilan" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
-          <Property Name="idVisiteur" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="idVisiteur" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
           <Property Name="idMedecin" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="MEDECIN" Relationship="Self.rapport_fk2" FromRole="RAPPORT" ToRole="MEDECIN" />
-          <NavigationProperty Name="MOTIF" Relationship="Self.rapport_fk3" FromRole="RAPPORT" ToRole="MOTIF" />
-          <NavigationProperty Name="OFFRIR" Relationship="Self.offrir_fk1" FromRole="RAPPORT" ToRole="OFFRIR" />
-          <NavigationProperty Name="Visiteur" Relationship="Self.rapport_fk1" FromRole="RAPPORT" ToRole="Visiteur" />
+          <NavigationProperty Name="MEDECIN" Relationship="ManitouModel.rapport_fk2" FromRole="RAPPORT" ToRole="MEDECIN" />
+          <NavigationProperty Name="MOTIF" Relationship="ManitouModel.rapport_fk3" FromRole="RAPPORT" ToRole="MOTIF" />
+          <NavigationProperty Name="OFFRIR" Relationship="ManitouModel.offrir_fk1" FromRole="RAPPORT" ToRole="OFFRIR" />
+          <NavigationProperty Name="Visiteur" Relationship="ManitouModel.rapport_fk1" FromRole="RAPPORT" ToRole="Visiteur" />
         </EntityType>
         <EntityType Name="Region">
           <Key>
@@ -622,11 +746,12 @@
           </Key>
           <Property Name="idRegion" Type="Int32" Nullable="false" />
           <Property Name="libRegion" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
-          <Property Name="idVisiteur" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="idVisiteur" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
           <Property Name="idSecteur" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Secteur" Relationship="Self.FK_SECTEUR" FromRole="Region" ToRole="Secteur" />
-          <NavigationProperty Name="Visiteur" Relationship="Self.FK_VISITEUR" FromRole="Region" ToRole="Visiteur" />
-          <NavigationProperty Name="Visiteur1" Relationship="Self.Travailler" FromRole="Region" ToRole="Visiteur" />
+          <NavigationProperty Name="FraisForfait" Relationship="ManitouModel.FK_RegionFraisForfait" FromRole="Region" ToRole="FraisForfait" />
+          <NavigationProperty Name="Secteur" Relationship="ManitouModel.FK_SECTEUR" FromRole="Region" ToRole="Secteur" />
+          <NavigationProperty Name="Visiteur" Relationship="ManitouModel.FK_VISITEUR" FromRole="Region" ToRole="Visiteur" />
+          <NavigationProperty Name="Visiteur1" Relationship="ManitouModel.Travailler" FromRole="Region" ToRole="Visiteur" />
         </EntityType>
         <EntityType Name="Secteur">
           <Key>
@@ -634,23 +759,23 @@
           </Key>
           <Property Name="idSecteur" Type="Int32" Nullable="false" />
           <Property Name="libSecteur" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
-          <Property Name="idVisiteur" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Region" Relationship="Self.FK_SECTEUR" FromRole="Secteur" ToRole="Region" />
-          <NavigationProperty Name="Visiteur" Relationship="Self.FK_VISITEURSECTEUR" FromRole="Secteur" ToRole="Visiteur" />
+          <Property Name="idVisiteur" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Region" Relationship="ManitouModel.FK_SECTEUR" FromRole="Secteur" ToRole="Region" />
+          <NavigationProperty Name="Visiteur" Relationship="ManitouModel.FK_VISITEURSECTEUR" FromRole="Secteur" ToRole="Visiteur" />
         </EntityType>
         <EntityType Name="SPECIALITE">
           <Key>
             <PropertyRef Name="idSpecialite" />
           </Key>
-          <Property Name="idSpecialite" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="libSpecialite" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="MEDECIN" Relationship="Self.medecin_fk" FromRole="SPECIALITE" ToRole="MEDECIN" />
+          <Property Name="idSpecialite" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="libSpecialite" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MEDECIN" Relationship="ManitouModel.medecin_fk" FromRole="SPECIALITE" ToRole="MEDECIN" />
         </EntityType>
         <EntityType Name="Visiteur">
           <Key>
             <PropertyRef Name="idVisiteur" />
           </Key>
-          <Property Name="idVisiteur" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="idVisiteur" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
           <Property Name="idLabo" Type="Int32" Nullable="false" />
           <Property Name="nom" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
           <Property Name="prenom" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
@@ -658,18 +783,18 @@
           <Property Name="cp" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
           <Property Name="ville" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
           <Property Name="dateEmbauche" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="identifiant" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="password" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="fichefrais" Relationship="Self.FK__fichefrai__idVis__1FCDBCEB" FromRole="Visiteur" ToRole="fichefrais" />
-          <NavigationProperty Name="Laboratoire" Relationship="Self.FK_Laboratoire" FromRole="Visiteur" ToRole="Laboratoire" />
-          <NavigationProperty Name="RAPPORT" Relationship="Self.rapport_fk1" FromRole="Visiteur" ToRole="RAPPORT" />
-          <NavigationProperty Name="Region" Relationship="Self.FK_VISITEUR" FromRole="Visiteur" ToRole="Region" />
-          <NavigationProperty Name="Secteur" Relationship="Self.FK_VISITEURSECTEUR" FromRole="Visiteur" ToRole="Secteur" />
-          <NavigationProperty Name="Region1" Relationship="Self.Travailler" FromRole="Visiteur" ToRole="Region" />
+          <Property Name="identifiant" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="fichefrais" Relationship="ManitouModel.FK__fichefrai__idVis__4B7734FF" FromRole="Visiteur" ToRole="fichefrais" />
+          <NavigationProperty Name="Laboratoire" Relationship="ManitouModel.FK_Laboratoire" FromRole="Visiteur" ToRole="Laboratoire" />
+          <NavigationProperty Name="RAPPORT" Relationship="ManitouModel.rapport_fk1" FromRole="Visiteur" ToRole="RAPPORT" />
+          <NavigationProperty Name="Region" Relationship="ManitouModel.FK_VISITEUR" FromRole="Visiteur" ToRole="Region" />
+          <NavigationProperty Name="Secteur" Relationship="ManitouModel.FK_VISITEURSECTEUR" FromRole="Visiteur" ToRole="Secteur" />
+          <NavigationProperty Name="Region1" Relationship="ManitouModel.Travailler" FromRole="Visiteur" ToRole="Region" />
         </EntityType>
-        <Association Name="FK__fichefrai__idEta__1ED998B2">
-          <End Role="Etat" Type="Self.Etat" Multiplicity="0..1" />
-          <End Role="fichefrais" Type="Self.fichefrais" Multiplicity="*" />
+        <Association Name="FK__fichefrai__idEta__4A8310C6">
+          <End Type="ManitouModel.Etat" Role="Etat" Multiplicity="0..1" />
+          <End Type="ManitouModel.fichefrais" Role="fichefrais" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Etat">
               <PropertyRef Name="id" />
@@ -680,8 +805,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="medicament_fk">
-          <End Role="FAMILLE" Type="Self.FAMILLE" Multiplicity="1" />
-          <End Role="MEDICAMENT" Type="Self.MEDICAMENT" Multiplicity="*" />
+          <End Type="ManitouModel.FAMILLE" Role="FAMILLE" Multiplicity="1" />
+          <End Type="ManitouModel.MEDICAMENT" Role="MEDICAMENT" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="FAMILLE">
               <PropertyRef Name="idFamille" />
@@ -691,9 +816,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__fichefrai__idVis__1FCDBCEB">
-          <End Role="Visiteur" Type="Self.Visiteur" Multiplicity="1" />
-          <End Role="fichefrais" Type="Self.fichefrais" Multiplicity="*" />
+        <Association Name="FK__fichefrai__idVis__4B7734FF">
+          <End Type="ManitouModel.Visiteur" Role="Visiteur" Multiplicity="1" />
+          <End Type="ManitouModel.fichefrais" Role="fichefrais" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Visiteur">
               <PropertyRef Name="idVisiteur" />
@@ -703,37 +828,41 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__LigneFraisForfai__25869641">
-          <End Role="fichefrais" Type="Self.fichefrais" Multiplicity="1" />
-          <End Role="LigneFraisForfait" Type="Self.LigneFraisForfait" Multiplicity="*" />
+        <Association Name="FK__LigneFraisForfai__51300E55">
+          <End Type="ManitouModel.fichefrais" Role="fichefrais" Multiplicity="1" />
+          <End Type="ManitouModel.LigneFraisForfait" Role="LigneFraisForfait" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="fichefrais">
               <PropertyRef Name="idVisiteur" />
               <PropertyRef Name="mois" />
+              <PropertyRef Name="annee" />
             </Principal>
             <Dependent Role="LigneFraisForfait">
               <PropertyRef Name="idVisiteur" />
               <PropertyRef Name="mois" />
+              <PropertyRef Name="annee" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__LigneFraisHorsFo__2E1BDC42">
-          <End Role="fichefrais" Type="Self.fichefrais" Multiplicity="1" />
-          <End Role="LigneFraisHorsForfait" Type="Self.LigneFraisHorsForfait" Multiplicity="*" />
+        <Association Name="FK__LigneFraisHorsFo__59C55456">
+          <End Type="ManitouModel.fichefrais" Role="fichefrais" Multiplicity="1" />
+          <End Type="ManitouModel.LigneFraisHorsForfait" Role="LigneFraisHorsForfait" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="fichefrais">
               <PropertyRef Name="idVisiteur" />
               <PropertyRef Name="mois" />
+              <PropertyRef Name="annee" />
             </Principal>
             <Dependent Role="LigneFraisHorsForfait">
               <PropertyRef Name="idVisiteur" />
               <PropertyRef Name="mois" />
+              <PropertyRef Name="annee" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__LigneFrai__idFra__267ABA7A">
-          <End Role="FraisForfait" Type="Self.FraisForfait" Multiplicity="1" />
-          <End Role="LigneFraisForfait" Type="Self.LigneFraisForfait" Multiplicity="*" />
+        <Association Name="FK__LigneFrai__idFra__5224328E">
+          <End Type="ManitouModel.FraisForfait" Role="FraisForfait" Multiplicity="1" />
+          <End Type="ManitouModel.LigneFraisForfait" Role="LigneFraisForfait" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="FraisForfait">
               <PropertyRef Name="id" />
@@ -743,9 +872,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_RegionFraisForfait">
+          <End Type="ManitouModel.Region" Role="Region" Multiplicity="0..1" />
+          <End Type="ManitouModel.FraisForfait" Role="FraisForfait" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="idRegion" />
+            </Principal>
+            <Dependent Role="FraisForfait">
+              <PropertyRef Name="idRegion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Laboratoire">
-          <End Role="Laboratoire" Type="Self.Laboratoire" Multiplicity="1" />
-          <End Role="Visiteur" Type="Self.Visiteur" Multiplicity="*" />
+          <End Type="ManitouModel.Laboratoire" Role="Laboratoire" Multiplicity="1" />
+          <End Type="ManitouModel.Visiteur" Role="Visiteur" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Laboratoire">
               <PropertyRef Name="idLabo" />
@@ -756,8 +897,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="medecin_fk">
-          <End Role="SPECIALITE" Type="Self.SPECIALITE" Multiplicity="0..1" />
-          <End Role="MEDECIN" Type="Self.MEDECIN" Multiplicity="*" />
+          <End Type="ManitouModel.SPECIALITE" Role="SPECIALITE" Multiplicity="0..1" />
+          <End Type="ManitouModel.MEDECIN" Role="MEDECIN" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SPECIALITE">
               <PropertyRef Name="idSpecialite" />
@@ -768,8 +909,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="rapport_fk2">
-          <End Role="MEDECIN" Type="Self.MEDECIN" Multiplicity="1" />
-          <End Role="RAPPORT" Type="Self.RAPPORT" Multiplicity="*" />
+          <End Type="ManitouModel.MEDECIN" Role="MEDECIN" Multiplicity="1" />
+          <End Type="ManitouModel.RAPPORT" Role="RAPPORT" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MEDECIN">
               <PropertyRef Name="idMedecin" />
@@ -780,8 +921,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="offrir_fk2">
-          <End Role="MEDICAMENT" Type="Self.MEDICAMENT" Multiplicity="1" />
-          <End Role="OFFRIR" Type="Self.OFFRIR" Multiplicity="*" />
+          <End Type="ManitouModel.MEDICAMENT" Role="MEDICAMENT" Multiplicity="1" />
+          <End Type="ManitouModel.OFFRIR" Role="OFFRIR" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MEDICAMENT">
               <PropertyRef Name="idMedicament" />
@@ -792,8 +933,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="rapport_fk3">
-          <End Role="MOTIF" Type="Self.MOTIF" Multiplicity="0..1" />
-          <End Role="RAPPORT" Type="Self.RAPPORT" Multiplicity="*" />
+          <End Type="ManitouModel.MOTIF" Role="MOTIF" Multiplicity="0..1" />
+          <End Type="ManitouModel.RAPPORT" Role="RAPPORT" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MOTIF">
               <PropertyRef Name="idMotif" />
@@ -804,8 +945,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="offrir_fk1">
-          <End Role="RAPPORT" Type="Self.RAPPORT" Multiplicity="1" />
-          <End Role="OFFRIR" Type="Self.OFFRIR" Multiplicity="*" />
+          <End Type="ManitouModel.RAPPORT" Role="RAPPORT" Multiplicity="1" />
+          <End Type="ManitouModel.OFFRIR" Role="OFFRIR" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="RAPPORT">
               <PropertyRef Name="idRapport" />
@@ -816,8 +957,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="rapport_fk1">
-          <End Role="Visiteur" Type="Self.Visiteur" Multiplicity="1" />
-          <End Role="RAPPORT" Type="Self.RAPPORT" Multiplicity="*" />
+          <End Type="ManitouModel.Visiteur" Role="Visiteur" Multiplicity="1" />
+          <End Type="ManitouModel.RAPPORT" Role="RAPPORT" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Visiteur">
               <PropertyRef Name="idVisiteur" />
@@ -828,8 +969,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SECTEUR">
-          <End Role="Secteur" Type="Self.Secteur" Multiplicity="1" />
-          <End Role="Region" Type="Self.Region" Multiplicity="*" />
+          <End Type="ManitouModel.Secteur" Role="Secteur" Multiplicity="1" />
+          <End Type="ManitouModel.Region" Role="Region" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Secteur">
               <PropertyRef Name="idSecteur" />
@@ -840,8 +981,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_VISITEUR">
-          <End Role="Visiteur" Type="Self.Visiteur" Multiplicity="1" />
-          <End Role="Region" Type="Self.Region" Multiplicity="*" />
+          <End Type="ManitouModel.Visiteur" Role="Visiteur" Multiplicity="1" />
+          <End Type="ManitouModel.Region" Role="Region" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Visiteur">
               <PropertyRef Name="idVisiteur" />
@@ -852,8 +993,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_VISITEURSECTEUR">
-          <End Role="Visiteur" Type="Self.Visiteur" Multiplicity="1" />
-          <End Role="Secteur" Type="Self.Secteur" Multiplicity="*" />
+          <End Type="ManitouModel.Visiteur" Role="Visiteur" Multiplicity="1" />
+          <End Type="ManitouModel.Secteur" Role="Secteur" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Visiteur">
               <PropertyRef Name="idVisiteur" />
@@ -864,95 +1005,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Travailler">
-          <End Role="Region" Type="Self.Region" Multiplicity="*" />
-          <End Role="Visiteur" Type="Self.Visiteur" Multiplicity="*" />
+          <End Type="ManitouModel.Region" Role="Region" Multiplicity="*" />
+          <End Type="ManitouModel.Visiteur" Role="Visiteur" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="ManitouEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Etat" EntityType="Self.Etat" />
-          <EntitySet Name="FAMILLE" EntityType="Self.FAMILLE" />
-          <EntitySet Name="fichefrais" EntityType="Self.fichefrais" />
-          <EntitySet Name="FraisForfait" EntityType="Self.FraisForfait" />
-          <EntitySet Name="Laboratoire" EntityType="Self.Laboratoire" />
-          <EntitySet Name="LigneFraisForfait" EntityType="Self.LigneFraisForfait" />
-          <EntitySet Name="LigneFraisHorsForfait" EntityType="Self.LigneFraisHorsForfait" />
-          <EntitySet Name="MEDECIN" EntityType="Self.MEDECIN" />
-          <EntitySet Name="MEDICAMENT" EntityType="Self.MEDICAMENT" />
-          <EntitySet Name="MOTIF" EntityType="Self.MOTIF" />
-          <EntitySet Name="OFFRIR" EntityType="Self.OFFRIR" />
-          <EntitySet Name="RAPPORT" EntityType="Self.RAPPORT" />
-          <EntitySet Name="Region" EntityType="Self.Region" />
-          <EntitySet Name="Secteur" EntityType="Self.Secteur" />
-          <EntitySet Name="SPECIALITE" EntityType="Self.SPECIALITE" />
-          <EntitySet Name="Visiteur" EntityType="Self.Visiteur" />
-          <AssociationSet Name="FK__fichefrai__idEta__1ED998B2" Association="Self.FK__fichefrai__idEta__1ED998B2">
-            <End Role="Etat" EntitySet="Etat" />
-            <End Role="fichefrais" EntitySet="fichefrais" />
-          </AssociationSet>
-          <AssociationSet Name="medicament_fk" Association="Self.medicament_fk">
-            <End Role="FAMILLE" EntitySet="FAMILLE" />
-            <End Role="MEDICAMENT" EntitySet="MEDICAMENT" />
-          </AssociationSet>
-          <AssociationSet Name="FK__fichefrai__idVis__1FCDBCEB" Association="Self.FK__fichefrai__idVis__1FCDBCEB">
-            <End Role="Visiteur" EntitySet="Visiteur" />
-            <End Role="fichefrais" EntitySet="fichefrais" />
-          </AssociationSet>
-          <AssociationSet Name="FK__LigneFraisForfai__25869641" Association="Self.FK__LigneFraisForfai__25869641">
-            <End Role="fichefrais" EntitySet="fichefrais" />
-            <End Role="LigneFraisForfait" EntitySet="LigneFraisForfait" />
-          </AssociationSet>
-          <AssociationSet Name="FK__LigneFraisHorsFo__2E1BDC42" Association="Self.FK__LigneFraisHorsFo__2E1BDC42">
-            <End Role="fichefrais" EntitySet="fichefrais" />
-            <End Role="LigneFraisHorsForfait" EntitySet="LigneFraisHorsForfait" />
-          </AssociationSet>
-          <AssociationSet Name="FK__LigneFrai__idFra__267ABA7A" Association="Self.FK__LigneFrai__idFra__267ABA7A">
-            <End Role="FraisForfait" EntitySet="FraisForfait" />
-            <End Role="LigneFraisForfait" EntitySet="LigneFraisForfait" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Laboratoire" Association="Self.FK_Laboratoire">
-            <End Role="Laboratoire" EntitySet="Laboratoire" />
-            <End Role="Visiteur" EntitySet="Visiteur" />
-          </AssociationSet>
-          <AssociationSet Name="medecin_fk" Association="Self.medecin_fk">
-            <End Role="SPECIALITE" EntitySet="SPECIALITE" />
-            <End Role="MEDECIN" EntitySet="MEDECIN" />
-          </AssociationSet>
-          <AssociationSet Name="rapport_fk2" Association="Self.rapport_fk2">
-            <End Role="MEDECIN" EntitySet="MEDECIN" />
-            <End Role="RAPPORT" EntitySet="RAPPORT" />
-          </AssociationSet>
-          <AssociationSet Name="offrir_fk2" Association="Self.offrir_fk2">
-            <End Role="MEDICAMENT" EntitySet="MEDICAMENT" />
-            <End Role="OFFRIR" EntitySet="OFFRIR" />
-          </AssociationSet>
-          <AssociationSet Name="rapport_fk3" Association="Self.rapport_fk3">
-            <End Role="MOTIF" EntitySet="MOTIF" />
-            <End Role="RAPPORT" EntitySet="RAPPORT" />
-          </AssociationSet>
-          <AssociationSet Name="offrir_fk1" Association="Self.offrir_fk1">
-            <End Role="RAPPORT" EntitySet="RAPPORT" />
-            <End Role="OFFRIR" EntitySet="OFFRIR" />
-          </AssociationSet>
-          <AssociationSet Name="rapport_fk1" Association="Self.rapport_fk1">
-            <End Role="Visiteur" EntitySet="Visiteur" />
-            <End Role="RAPPORT" EntitySet="RAPPORT" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SECTEUR" Association="Self.FK_SECTEUR">
-            <End Role="Secteur" EntitySet="Secteur" />
-            <End Role="Region" EntitySet="Region" />
-          </AssociationSet>
-          <AssociationSet Name="FK_VISITEUR" Association="Self.FK_VISITEUR">
-            <End Role="Visiteur" EntitySet="Visiteur" />
-            <End Role="Region" EntitySet="Region" />
-          </AssociationSet>
-          <AssociationSet Name="FK_VISITEURSECTEUR" Association="Self.FK_VISITEURSECTEUR">
-            <End Role="Visiteur" EntitySet="Visiteur" />
-            <End Role="Secteur" EntitySet="Secteur" />
-          </AssociationSet>
-          <AssociationSet Name="Travailler" Association="Self.Travailler">
-            <End Role="Region" EntitySet="Region" />
-            <End Role="Visiteur" EntitySet="Visiteur" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -962,173 +1017,178 @@
           <EntitySetMapping Name="Etat">
             <EntityTypeMapping TypeName="ManitouModel.Etat">
               <MappingFragment StoreEntitySet="Etat">
-                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="libelle" ColumnName="libelle" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FAMILLE">
             <EntityTypeMapping TypeName="ManitouModel.FAMILLE">
               <MappingFragment StoreEntitySet="FAMILLE">
-                <ScalarProperty Name="idFamille" ColumnName="idFamille" />
                 <ScalarProperty Name="libFamille" ColumnName="libFamille" />
+                <ScalarProperty Name="idFamille" ColumnName="idFamille" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="fichefrais">
             <EntityTypeMapping TypeName="ManitouModel.fichefrais">
               <MappingFragment StoreEntitySet="fichefrais">
-                <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
-                <ScalarProperty Name="mois" ColumnName="mois" />
-                <ScalarProperty Name="nbJustificatifs" ColumnName="nbJustificatifs" />
-                <ScalarProperty Name="montantValide" ColumnName="montantValide" />
-                <ScalarProperty Name="dateModif" ColumnName="dateModif" />
                 <ScalarProperty Name="idEtat" ColumnName="idEtat" />
+                <ScalarProperty Name="dateModif" ColumnName="dateModif" />
+                <ScalarProperty Name="montantValide" ColumnName="montantValide" />
+                <ScalarProperty Name="nbJustificatifs" ColumnName="nbJustificatifs" />
+                <ScalarProperty Name="annee" ColumnName="annee" />
+                <ScalarProperty Name="mois" ColumnName="mois" />
+                <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FraisForfait">
             <EntityTypeMapping TypeName="ManitouModel.FraisForfait">
               <MappingFragment StoreEntitySet="FraisForfait">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="libelle" ColumnName="libelle" />
+                <ScalarProperty Name="idRegion" ColumnName="idRegion" />
+                <ScalarProperty Name="TypeForfait" ColumnName="TypeForfait" />
                 <ScalarProperty Name="montant" ColumnName="montant" />
+                <ScalarProperty Name="libelle" ColumnName="libelle" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Laboratoire">
             <EntityTypeMapping TypeName="ManitouModel.Laboratoire">
               <MappingFragment StoreEntitySet="Laboratoire">
-                <ScalarProperty Name="idLabo" ColumnName="idLabo" />
                 <ScalarProperty Name="nomLabo" ColumnName="nomLabo" />
+                <ScalarProperty Name="idLabo" ColumnName="idLabo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LigneFraisForfait">
             <EntityTypeMapping TypeName="ManitouModel.LigneFraisForfait">
               <MappingFragment StoreEntitySet="LigneFraisForfait">
-                <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
-                <ScalarProperty Name="mois" ColumnName="mois" />
-                <ScalarProperty Name="idFraisForfait" ColumnName="idFraisForfait" />
                 <ScalarProperty Name="quantite" ColumnName="quantite" />
+                <ScalarProperty Name="idFraisForfait" ColumnName="idFraisForfait" />
+                <ScalarProperty Name="annee" ColumnName="annee" />
+                <ScalarProperty Name="mois" ColumnName="mois" />
+                <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LigneFraisHorsForfait">
             <EntityTypeMapping TypeName="ManitouModel.LigneFraisHorsForfait">
               <MappingFragment StoreEntitySet="LigneFraisHorsForfait">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
-                <ScalarProperty Name="mois" ColumnName="mois" />
-                <ScalarProperty Name="libelle" ColumnName="libelle" />
-                <ScalarProperty Name="date" ColumnName="date" />
                 <ScalarProperty Name="montant" ColumnName="montant" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="libelle" ColumnName="libelle" />
+                <ScalarProperty Name="annee" ColumnName="annee" />
+                <ScalarProperty Name="mois" ColumnName="mois" />
+                <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MEDECIN">
             <EntityTypeMapping TypeName="ManitouModel.MEDECIN">
               <MappingFragment StoreEntitySet="MEDECIN">
-                <ScalarProperty Name="idMedecin" ColumnName="idMedecin" />
-                <ScalarProperty Name="nom" ColumnName="nom" />
-                <ScalarProperty Name="prenom" ColumnName="prenom" />
-                <ScalarProperty Name="adresse" ColumnName="adresse" />
-                <ScalarProperty Name="tel" ColumnName="tel" />
-                <ScalarProperty Name="idSpecialite" ColumnName="idSpecialite" />
                 <ScalarProperty Name="departement" ColumnName="departement" />
+                <ScalarProperty Name="idSpecialite" ColumnName="idSpecialite" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="adresse" ColumnName="adresse" />
+                <ScalarProperty Name="prenom" ColumnName="prenom" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="idMedecin" ColumnName="idMedecin" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MEDICAMENT">
             <EntityTypeMapping TypeName="ManitouModel.MEDICAMENT">
               <MappingFragment StoreEntitySet="MEDICAMENT">
-                <ScalarProperty Name="idMedicament" ColumnName="idMedicament" />
-                <ScalarProperty Name="nomCommercial" ColumnName="nomCommercial" />
-                <ScalarProperty Name="idFamille" ColumnName="idFamille" />
-                <ScalarProperty Name="composition" ColumnName="composition" />
-                <ScalarProperty Name="effets" ColumnName="effets" />
                 <ScalarProperty Name="contreIndications" ColumnName="contreIndications" />
+                <ScalarProperty Name="effets" ColumnName="effets" />
+                <ScalarProperty Name="composition" ColumnName="composition" />
+                <ScalarProperty Name="idFamille" ColumnName="idFamille" />
+                <ScalarProperty Name="nomCommercial" ColumnName="nomCommercial" />
+                <ScalarProperty Name="idMedicament" ColumnName="idMedicament" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MOTIF">
             <EntityTypeMapping TypeName="ManitouModel.MOTIF">
               <MappingFragment StoreEntitySet="MOTIF">
-                <ScalarProperty Name="idMotif" ColumnName="idMotif" />
                 <ScalarProperty Name="libMotif" ColumnName="libMotif" />
+                <ScalarProperty Name="idMotif" ColumnName="idMotif" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OFFRIR">
             <EntityTypeMapping TypeName="ManitouModel.OFFRIR">
               <MappingFragment StoreEntitySet="OFFRIR">
-                <ScalarProperty Name="idRapport" ColumnName="idRapport" />
-                <ScalarProperty Name="idMedicament" ColumnName="idMedicament" />
                 <ScalarProperty Name="quantite" ColumnName="quantite" />
+                <ScalarProperty Name="idMedicament" ColumnName="idMedicament" />
+                <ScalarProperty Name="idRapport" ColumnName="idRapport" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RAPPORT">
             <EntityTypeMapping TypeName="ManitouModel.RAPPORT">
               <MappingFragment StoreEntitySet="RAPPORT">
-                <ScalarProperty Name="idRapport" ColumnName="idRapport" />
-                <ScalarProperty Name="dateRapport" ColumnName="dateRapport" />
-                <ScalarProperty Name="idMotif" ColumnName="idMotif" />
-                <ScalarProperty Name="bilan" ColumnName="bilan" />
-                <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
                 <ScalarProperty Name="idMedecin" ColumnName="idMedecin" />
+                <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
+                <ScalarProperty Name="bilan" ColumnName="bilan" />
+                <ScalarProperty Name="idMotif" ColumnName="idMotif" />
+                <ScalarProperty Name="dateRapport" ColumnName="dateRapport" />
+                <ScalarProperty Name="idRapport" ColumnName="idRapport" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Region">
             <EntityTypeMapping TypeName="ManitouModel.Region">
               <MappingFragment StoreEntitySet="Region">
-                <ScalarProperty Name="idRegion" ColumnName="idRegion" />
-                <ScalarProperty Name="libRegion" ColumnName="libRegion" />
-                <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
                 <ScalarProperty Name="idSecteur" ColumnName="idSecteur" />
+                <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
+                <ScalarProperty Name="libRegion" ColumnName="libRegion" />
+                <ScalarProperty Name="idRegion" ColumnName="idRegion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Secteur">
             <EntityTypeMapping TypeName="ManitouModel.Secteur">
               <MappingFragment StoreEntitySet="Secteur">
-                <ScalarProperty Name="idSecteur" ColumnName="idSecteur" />
-                <ScalarProperty Name="libSecteur" ColumnName="libSecteur" />
                 <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
+                <ScalarProperty Name="libSecteur" ColumnName="libSecteur" />
+                <ScalarProperty Name="idSecteur" ColumnName="idSecteur" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SPECIALITE">
             <EntityTypeMapping TypeName="ManitouModel.SPECIALITE">
               <MappingFragment StoreEntitySet="SPECIALITE">
-                <ScalarProperty Name="idSpecialite" ColumnName="idSpecialite" />
                 <ScalarProperty Name="libSpecialite" ColumnName="libSpecialite" />
+                <ScalarProperty Name="idSpecialite" ColumnName="idSpecialite" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Visiteur">
             <EntityTypeMapping TypeName="ManitouModel.Visiteur">
               <MappingFragment StoreEntitySet="Visiteur">
-                <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
-                <ScalarProperty Name="idLabo" ColumnName="idLabo" />
-                <ScalarProperty Name="nom" ColumnName="nom" />
-                <ScalarProperty Name="prenom" ColumnName="prenom" />
-                <ScalarProperty Name="rue" ColumnName="rue" />
-                <ScalarProperty Name="cp" ColumnName="cp" />
-                <ScalarProperty Name="ville" ColumnName="ville" />
-                <ScalarProperty Name="dateEmbauche" ColumnName="dateEmbauche" />
-                <ScalarProperty Name="identifiant" ColumnName="identifiant" />
                 <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="identifiant" ColumnName="identifiant" />
+                <ScalarProperty Name="dateEmbauche" ColumnName="dateEmbauche" />
+                <ScalarProperty Name="ville" ColumnName="ville" />
+                <ScalarProperty Name="cp" ColumnName="cp" />
+                <ScalarProperty Name="rue" ColumnName="rue" />
+                <ScalarProperty Name="prenom" ColumnName="prenom" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="idLabo" ColumnName="idLabo" />
+                <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <AssociationSetMapping Name="Travailler" TypeName="ManitouModel.Travailler" StoreEntitySet="Travailler">
-            <EndProperty Name="Region">
-              <ScalarProperty Name="idRegion" ColumnName="idRegion" />
-            </EndProperty>
             <EndProperty Name="Visiteur">
               <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
+            </EndProperty>
+            <EndProperty Name="Region">
+              <ScalarProperty Name="idRegion" ColumnName="idRegion" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>

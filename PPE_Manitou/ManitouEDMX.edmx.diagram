@@ -5,39 +5,40 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="78bb47bdf4ff41e79bfe043a5a064990" Name="Diagram1" ZoomLevel="66">
-        <EntityTypeShape EntityType="ManitouModel.Etat" Width="1.5" PointX="4.5" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ManitouModel.FAMILLE" Width="1.5" PointX="10.75" PointY="16.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ManitouModel.fichefrais" Width="1.5" PointX="5.5" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ManitouModel.FraisForfait" Width="1.5" PointX="12.375" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ManitouModel.Laboratoire" Width="1.5" PointX="2.5" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ManitouModel.LigneFraisForfait" Width="1.5" PointX="11" PointY="9.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ManitouModel.LigneFraisHorsForfait" Width="1.5" PointX="7.5" PointY="16" IsExpanded="true" />
-        <EntityTypeShape EntityType="ManitouModel.MEDECIN" Width="1.5" PointX="8.375" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="ManitouModel.MEDICAMENT" Width="1.5" PointX="10.75" PointY="13" IsExpanded="true" />
-        <EntityTypeShape EntityType="ManitouModel.MOTIF" Width="1.5" PointX="6" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ManitouModel.OFFRIR" Width="1.5" PointX="10.5" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ManitouModel.RAPPORT" Width="1.5" PointX="8.25" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ManitouModel.Region" Width="1.5" PointX="0.5" PointY="10.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ManitouModel.Secteur" Width="1.5" PointX="2.875" PointY="15.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ManitouModel.SPECIALITE" Width="1.5" PointX="5" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ManitouModel.Visiteur" Width="1.5" PointX="2.625" PointY="7.125" IsExpanded="true" />
-        <AssociationConnector Association="ManitouModel.FK__fichefrai__idEta__1ED998B2" ManuallyRouted="false" />
-        <AssociationConnector Association="ManitouModel.medicament_fk" ManuallyRouted="false" />
-        <AssociationConnector Association="ManitouModel.FK__fichefrai__idVis__1FCDBCEB" ManuallyRouted="false" />
-        <AssociationConnector Association="ManitouModel.FK__LigneFraisForfai__25869641" ManuallyRouted="false" />
-        <AssociationConnector Association="ManitouModel.FK__LigneFraisHorsFo__2E1BDC42" ManuallyRouted="false" />
-        <AssociationConnector Association="ManitouModel.FK__LigneFrai__idFra__267ABA7A" ManuallyRouted="false" />
-        <AssociationConnector Association="ManitouModel.FK_Laboratoire" ManuallyRouted="false" />
-        <AssociationConnector Association="ManitouModel.medecin_fk" ManuallyRouted="false" />
-        <AssociationConnector Association="ManitouModel.rapport_fk2" ManuallyRouted="false" />
-        <AssociationConnector Association="ManitouModel.offrir_fk2" ManuallyRouted="false" />
-        <AssociationConnector Association="ManitouModel.rapport_fk3" ManuallyRouted="false" />
-        <AssociationConnector Association="ManitouModel.offrir_fk1" ManuallyRouted="false" />
-        <AssociationConnector Association="ManitouModel.rapport_fk1" ManuallyRouted="false" />
-        <AssociationConnector Association="ManitouModel.FK_SECTEUR" ManuallyRouted="false" />
-        <AssociationConnector Association="ManitouModel.FK_VISITEUR" ManuallyRouted="false" />
-        <AssociationConnector Association="ManitouModel.FK_VISITEURSECTEUR" ManuallyRouted="false" />
-        <AssociationConnector Association="ManitouModel.Travailler" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ManitouModel.Etat" Width="1.5" PointX="3" PointY="5.5" />
+        <EntityTypeShape EntityType="ManitouModel.FAMILLE" Width="1.5" PointX="6" PointY="23.5" />
+        <EntityTypeShape EntityType="ManitouModel.fichefrais" Width="1.5" PointX="5.25" PointY="8.75" />
+        <EntityTypeShape EntityType="ManitouModel.FraisForfait" Width="1.5" PointX="9.75" PointY="14" />
+        <EntityTypeShape EntityType="ManitouModel.Laboratoire" Width="1.5" PointX="0.75" PointY="9.5" />
+        <EntityTypeShape EntityType="ManitouModel.LigneFraisForfait" Width="1.5" PointX="12" PointY="11.375" />
+        <EntityTypeShape EntityType="ManitouModel.LigneFraisHorsForfait" Width="1.5" PointX="7.5" PointY="5" />
+        <EntityTypeShape EntityType="ManitouModel.MEDECIN" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="ManitouModel.MEDICAMENT" Width="1.5" PointX="8.25" PointY="23" />
+        <EntityTypeShape EntityType="ManitouModel.MOTIF" Width="1.5" PointX="6" PointY="17.25" />
+        <EntityTypeShape EntityType="ManitouModel.OFFRIR" Width="1.5" PointX="10.5" PointY="8.25" />
+        <EntityTypeShape EntityType="ManitouModel.RAPPORT" Width="1.5" PointX="8.25" PointY="8.875" />
+        <EntityTypeShape EntityType="ManitouModel.Region" Width="1.5" PointX="7.5" PointY="13.875" />
+        <EntityTypeShape EntityType="ManitouModel.Secteur" Width="1.5" PointX="5.25" PointY="20.25" />
+        <EntityTypeShape EntityType="ManitouModel.SPECIALITE" Width="1.5" PointX="3.75" PointY="2.5" />
+        <EntityTypeShape EntityType="ManitouModel.Visiteur" Width="1.5" PointX="3" PointY="8.25" />
+        <AssociationConnector Association="ManitouModel.FK__fichefrai__idEta__4A8310C6" />
+        <AssociationConnector Association="ManitouModel.medicament_fk" />
+        <AssociationConnector Association="ManitouModel.FK__fichefrai__idVis__4B7734FF" />
+        <AssociationConnector Association="ManitouModel.FK__LigneFraisForfai__51300E55" />
+        <AssociationConnector Association="ManitouModel.FK__LigneFraisHorsFo__59C55456" />
+        <AssociationConnector Association="ManitouModel.FK__LigneFrai__idFra__5224328E" />
+        <AssociationConnector Association="ManitouModel.FK_RegionFraisForfait" />
+        <AssociationConnector Association="ManitouModel.FK_Laboratoire" />
+        <AssociationConnector Association="ManitouModel.medecin_fk" />
+        <AssociationConnector Association="ManitouModel.rapport_fk2" />
+        <AssociationConnector Association="ManitouModel.offrir_fk2" />
+        <AssociationConnector Association="ManitouModel.rapport_fk3" />
+        <AssociationConnector Association="ManitouModel.offrir_fk1" />
+        <AssociationConnector Association="ManitouModel.rapport_fk1" />
+        <AssociationConnector Association="ManitouModel.FK_SECTEUR" />
+        <AssociationConnector Association="ManitouModel.FK_VISITEUR" />
+        <AssociationConnector Association="ManitouModel.FK_VISITEURSECTEUR" />
+        <AssociationConnector Association="ManitouModel.Travailler" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
