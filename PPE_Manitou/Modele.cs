@@ -28,7 +28,8 @@ namespace PPE_Manitou
             }
             return sb.ToString().ToUpper();
         }
-
+        public static Visiteur VisiteurChoisi { get => VisiteurChoisi; set => VisiteurChoisi = value; }
+        public static fichefrais FichefraisChoisi { get => FichefraisChoisi; set => FichefraisChoisi = value; }
         public static List<Visiteur> listeVisiteur()
         {
             return maConnexion.Visiteur.ToList();
@@ -53,6 +54,26 @@ namespace PPE_Manitou
                 {
                     vretour = true;
                 }
+            }
+            return vretour;
+        }
+        public static bool soumettreFiche(string unIdVisiteur, string unMois, int uneAnnee, int unNbJustificatifs = 0, decimal unMontantValide = 0 ,string unIdEtat = "CR")
+        {
+            bool vretour = true;
+            try
+            {
+                FichefraisChoisi = new fichefrais();
+                FichefraisChoisi.idVisiteur = unIdVisiteur;
+                FichefraisChoisi.mois = unIdVisiteur;
+                FichefraisChoisi.annee = uneAnnee;
+                FichefraisChoisi.nbJustificatifs = unNbJustificatifs;
+                FichefraisChoisi.montantValide = unMontantValide;
+                FichefraisChoisi.idEtat = unIdEtat;
+                maConnexion.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                vretour = false;
             }
             return vretour;
         }
