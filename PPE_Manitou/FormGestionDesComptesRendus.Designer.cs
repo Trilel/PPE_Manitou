@@ -86,6 +86,7 @@
             this.btn_Medicaments.Size = new System.Drawing.Size(23, 23);
             this.btn_Medicaments.TabIndex = 4;
             this.btn_Medicaments.UseVisualStyleBackColor = true;
+            this.btn_Medicaments.Click += new System.EventHandler(this.btn_Medicaments_Click);
             // 
             // btn_Quitter
             // 

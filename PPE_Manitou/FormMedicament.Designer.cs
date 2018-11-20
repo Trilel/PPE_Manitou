@@ -43,6 +43,7 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
+            this.btn_Fermer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
@@ -169,11 +170,21 @@
             this.textBox7.Size = new System.Drawing.Size(65, 20);
             this.textBox7.TabIndex = 15;
             // 
+            // btn_Fermer
+            // 
+            this.btn_Fermer.Location = new System.Drawing.Point(579, 379);
+            this.btn_Fermer.Name = "btn_Fermer";
+            this.btn_Fermer.Size = new System.Drawing.Size(75, 23);
+            this.btn_Fermer.TabIndex = 21;
+            this.btn_Fermer.Text = "Fermer";
+            this.btn_Fermer.UseVisualStyleBackColor = true;
+            // 
             // FormMedicament
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(666, 414);
+            this.Controls.Add(this.btn_Fermer);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
@@ -213,5 +224,6 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Button btn_Fermer;
     }
 }

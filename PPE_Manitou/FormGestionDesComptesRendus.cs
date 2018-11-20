@@ -54,5 +54,13 @@ namespace PPE_Manitou
             F.Show();
             this.Close();
         }
+
+        private void btn_Medicaments_Click(object sender, EventArgs e)
+        {
+            FormMedicament F = new FormMedicament();
+            F.Show();
+            this.Close();
+
+        }
     }
 }
