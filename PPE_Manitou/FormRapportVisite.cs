@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace PPE_Manitou
 {
-    public partial class FormFicheFrais : Form
+    public partial class FormRapportVisite : Form
     {
-        public FormFicheFrais()
+        public FormRapportVisite()
         {
             InitializeComponent();
         }
 
-        private void txtBoxNuit_TextChanged(object sender, EventArgs e)
+        private void FormRapportVisite_Load(object sender, EventArgs e)
         {
 
         }

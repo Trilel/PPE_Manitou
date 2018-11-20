@@ -88,6 +88,30 @@
     <Compile Include="FormFicheFrais.Designer.cs">
       <DependentUpon>FormFicheFrais.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormGestionDesComptesRendus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGestionDesComptesRendus.Designer.cs">
+      <DependentUpon>FormGestionDesComptesRendus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPracticiens.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPracticiens.Designer.cs">
+      <DependentUpon>FormPracticiens.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRapportVisite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRapportVisite.Designer.cs">
+      <DependentUpon>FormRapportVisite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormVisiterus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVisiterus.Designer.cs">
+      <DependentUpon>FormVisiterus.cs</DependentUpon>
+    </Compile>
     <Compile Include="FraisForfait.cs">
       <DependentUpon>ManitouEDMX.tt</DependentUpon>
     </Compile>
@@ -157,6 +181,18 @@
     <EmbeddedResource Include="FormFicheFrais.resx">
       <DependentUpon>FormFicheFrais.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormGestionDesComptesRendus.resx">
+      <DependentUpon>FormGestionDesComptesRendus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPracticiens.resx">
+      <DependentUpon>FormPracticiens.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRapportVisite.resx">
+      <DependentUpon>FormRapportVisite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVisiterus.resx">
+      <DependentUpon>FormVisiterus.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -203,6 +239,7 @@
       <LastGenOutput>ManitouEDMX.cs</LastGenOutput>
     </Content>
     <None Include="Resources\logo.jpg" />
+    <None Include="Resources\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

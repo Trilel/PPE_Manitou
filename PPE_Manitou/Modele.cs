@@ -17,6 +17,18 @@ namespace PPE_Manitou
             /* Instantiation d’un objet de la classe typée chaine de connexion SqlConnection */
             maConnexion = new ManitouEntities1();
         }
+        private static string GetMd5Hash(string PasswdSaisi)
+        {
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(PasswdSaisi);
+            byte[] hash = (MD5.Create()).ComputeHash(inputBytes);
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hash.Length; i++)
+            {
+                sb.Append(hash[i].ToString("x2"));
+            }
+            return sb.ToString().ToUpper();
+        }
+
         public static List<Visiteur> listeVisiteur()
         {
             return maConnexion.Visiteur.ToList();
@@ -29,15 +41,15 @@ namespace PPE_Manitou
             return LQuery.ToList();
         }
 
-        public static bool connection(string unId , string unMdp)
+        public static bool connection(string id , string mp)
         {
             bool vretour = false;
             var LQuery = maConnexion.Visiteur.ToList()
-                           .Where(x => x.identifiant == unId)
+                           .Where(x => x.identifiant == id)
                            .Select(x => new { x.identifiant, x.password });
             foreach (var v in LQuery)
             {
-                if(v.password == unMdp)
+                if(v.password.Substring(2) == GetMd5Hash(mp))
                 {
                     vretour = true;
                 }
