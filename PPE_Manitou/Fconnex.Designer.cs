@@ -132,6 +132,7 @@
             this.ForeColor = System.Drawing.Color.MediumBlue;
             this.Name = "Fconnex";
             this.Text = "Fconnex";
+            this.Load += new System.EventHandler(this.Fconnex_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 

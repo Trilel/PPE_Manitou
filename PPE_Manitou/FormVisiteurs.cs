@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PPE_Manitou
 {
-    public partial class FormVisiterus : Form
+    public partial class FormVisiteurs : Form
     {
-        public FormVisiterus()
+        public FormVisiteurs()
         {
             InitializeComponent();
         }

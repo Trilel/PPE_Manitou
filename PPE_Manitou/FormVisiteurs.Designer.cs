@@ -1,6 +1,6 @@
 ﻿namespace PPE_Manitou
 {
-    partial class FormVisiterus
+    partial class FormVisiteurs
     {
         /// <summary>
         /// Required designer variable.

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lbl_Practiciens = new System.Windows.Forms.Label();
             this.lbl_Chercher = new System.Windows.Forms.Label();
             this.lbl_Nom = new System.Windows.Forms.Label();
@@ -49,6 +50,8 @@
             this.btn_Precedent = new System.Windows.Forms.Button();
             this.btn_Suivant = new System.Windows.Forms.Button();
             this.btn_Fermer = new System.Windows.Forms.Button();
+            this.Praticiens = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.Praticiens)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_Practiciens
@@ -227,6 +230,10 @@
             this.btn_Fermer.UseVisualStyleBackColor = true;
             this.btn_Fermer.Click += new System.EventHandler(this.btn_Fermer_Click);
             // 
+            // Praticiens
+            // 
+            this.Praticiens.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
+            // 
             // FormPracticiens
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -255,6 +262,7 @@
             this.Controls.Add(this.lbl_Practiciens);
             this.Name = "FormPracticiens";
             this.Text = "FormPracticiens";
+            ((System.ComponentModel.ISupportInitialize)(this.Praticiens)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -283,5 +291,6 @@
         private System.Windows.Forms.Button btn_Precedent;
         private System.Windows.Forms.Button btn_Suivant;
         private System.Windows.Forms.Button btn_Fermer;
+        private System.Windows.Forms.BindingSource Praticiens;
     }
 }
