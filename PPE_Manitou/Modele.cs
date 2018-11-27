@@ -29,7 +29,7 @@ namespace PPE_Manitou
             return sb.ToString().ToUpper();
         }
         public static Visiteur VisiteurChoisi { get => VisiteurChoisi; set => VisiteurChoisi = value; }
-        public static fichefrais FichefraisChoisi { get => FichefraisChoisi; set => FichefraisChoisi = value; }
+        public static fichefrais UneFichefrais { get => UneFichefrais; set => UneFichefrais = value; }
         public static List<Visiteur> listeVisiteur()
         {
             return maConnexion.Visiteur.ToList();
@@ -50,7 +50,8 @@ namespace PPE_Manitou
                            .Select(x => new { x.identifiant, x.password });
             foreach (var v in LQuery)
             {
-                if(v.password.Substring(2) == GetMd5Hash(mp))
+                string mdp = GetMd5Hash(mp);
+                if (v.password.Substring(2) == mdp)
                 {
                     vretour = true;
                 }
@@ -62,13 +63,14 @@ namespace PPE_Manitou
             bool vretour = true;
             try
             {
-                FichefraisChoisi = new fichefrais();
-                FichefraisChoisi.idVisiteur = unIdVisiteur;
-                FichefraisChoisi.mois = unIdVisiteur;
-                FichefraisChoisi.annee = uneAnnee;
-                FichefraisChoisi.nbJustificatifs = unNbJustificatifs;
-                FichefraisChoisi.montantValide = unMontantValide;
-                FichefraisChoisi.idEtat = unIdEtat;
+                UneFichefrais = new fichefrais();
+                UneFichefrais.idVisiteur = unIdVisiteur;
+                UneFichefrais.mois = unIdVisiteur;
+                UneFichefrais.annee = uneAnnee;
+                UneFichefrais.nbJustificatifs = unNbJustificatifs;
+                UneFichefrais.montantValide = unMontantValide;
+                UneFichefrais.idEtat = unIdEtat;
+                maConnexion.fichefrais.Add(UneFichefrais);
                 maConnexion.SaveChanges();
             }
             catch (Exception ex)
