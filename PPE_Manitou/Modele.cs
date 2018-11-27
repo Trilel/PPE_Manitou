@@ -17,32 +17,20 @@ namespace PPE_Manitou
             /* Instantiation d’un objet de la classe typée chaine de connexion SqlConnection */
             maConnexion = new ManitouEntities1();
         }
-        private static string GetMd5Hash(string PasswdSaisi)
-        {
-            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(PasswdSaisi);
-            byte[] hash = (MD5.Create()).ComputeHash(inputBytes);
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < hash.Length; i++)
-            {
-                sb.Append(hash[i].ToString("x2"));
-            }
-            return sb.ToString().ToUpper();
-        }
         public static Visiteur VisiteurChoisi { get => VisiteurChoisi; set => VisiteurChoisi = value; }
         public static fichefrais UneFichefrais { get => UneFichefrais; set => UneFichefrais = value; }
+        public static LigneFraisForfait UneLigneFraisForfait { get => UneLigneFraisForfait; set => UneLigneFraisForfait = value; }
+        public static LigneFraisHorsForfait UneLigneFraisHorsForfait { get => UneLigneFraisHorsForfait; set => UneLigneFraisHorsForfait = value; }
+        public static int idHorsforfait;
         public static List<Visiteur> listeVisiteur()
         {
             return maConnexion.Visiteur.ToList();
         }
-        public static Object VisiteurConnecte(string identifiant)
+        public static List<Region> listeRegion()
         {
-            var LQuery = maConnexion.Visiteur.ToList()
-                           .Where(x => x.identifiant == identifiant)
-                           .Select(x => new { x.idVisiteur, x.idLabo, x.nom, x.prenom, x.rue, x.cp, x.ville, x.dateEmbauche, x.identifiant, x.password });
-            return LQuery.ToList();
+            return maConnexion.Region.ToList();
         }
-
-        public static bool connection(string id , string mp)
+        public static bool connection(string id, string mp)
         {
             bool vretour = false;
             var LQuery = maConnexion.Visiteur.ToList()
@@ -57,6 +45,24 @@ namespace PPE_Manitou
                 }
             }
             return vretour;
+        }
+        public static Object VisiteurConnecte(string identifiant)
+        {
+            var LQuery = maConnexion.Visiteur.ToList()
+                           .Where(x => x.identifiant == identifiant)
+                           .Select(x => new { x.idVisiteur, x.idLabo, x.nom, x.prenom, x.rue, x.cp, x.ville, x.dateEmbauche, x.identifiant, x.password });
+            return LQuery.ToList();
+        }
+        private static string GetMd5Hash(string PasswdSaisi)
+        {
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(PasswdSaisi);
+            byte[] hash = (MD5.Create()).ComputeHash(inputBytes);
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hash.Length; i++)
+            {
+                sb.Append(hash[i].ToString("x2"));
+            }
+            return sb.ToString().ToUpper();
         }
         public static bool soumettreFiche(string unIdVisiteur, string unMois, int uneAnnee, int unNbJustificatifs = 0, decimal unMontantValide = 0 ,string unIdEtat = "CR")
         {
@@ -78,6 +84,44 @@ namespace PPE_Manitou
                 vretour = false;
             }
             return vretour;
+        }
+        public static void AjoutLigneFraisForfait(string unIdVisiteur, string unMois, int uneAnnee, string unIdFraisForfait, int uneQuantite)
+        {
+            try
+            {
+                UneLigneFraisForfait = new LigneFraisForfait();
+                UneLigneFraisForfait.idVisiteur = unIdVisiteur;
+                UneLigneFraisForfait.mois = unMois;
+                UneLigneFraisForfait.annee = uneAnnee;
+                UneLigneFraisForfait.idFraisForfait = unIdFraisForfait;
+                UneLigneFraisForfait.quantite = uneQuantite;
+                maConnexion.LigneFraisForfait.Add(UneLigneFraisForfait);
+                maConnexion.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                
+            }
+        }
+        public static void AjoutLigneFraisHorsForfait(int unId, string unIdVisiteur,string unMois, int uneAnnee, string unLibelle, DateTime uneDate, Decimal unMontant)
+        {
+            try
+            {
+                UneLigneFraisHorsForfait = new LigneFraisHorsForfait();
+                idHorsforfait += 1;
+                UneLigneFraisHorsForfait.idVisiteur = unIdVisiteur;
+                UneLigneFraisHorsForfait.mois = unMois;
+                UneLigneFraisHorsForfait.annee = uneAnnee;
+                UneLigneFraisHorsForfait.libelle = unLibelle;
+                UneLigneFraisHorsForfait.date = uneDate;
+                UneLigneFraisHorsForfait.montant = unMontant;
+                maConnexion.LigneFraisHorsForfait.Add(UneLigneFraisHorsForfait);
+                maConnexion.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                
+            }
         }
     }
 }
