@@ -23,10 +23,7 @@ namespace PPE_Manitou
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            string id = txtIdentifiant.Text;
-            string mdp = txtPasswd.Text;
-            bool connecte = Modele.connection(id, mdp);
-            if(connecte)
+            if (Modele.connection(txtIdentifiant.Text, txtPasswd.Text))
             {
                 FormGestionDesComptesRendus f = new FormGestionDesComptesRendus();
                 f.Show();
