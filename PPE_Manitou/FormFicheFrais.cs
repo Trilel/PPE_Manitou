@@ -31,18 +31,45 @@ namespace PPE_Manitou
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            //Ligne frais forfait 
-            Modele.AjoutLigneFraisForfait(txtId.Text, txtMois.Text, Convert.ToInt32(txtAnnee.Text), cbRegion.ValueMember, Convert.ToInt32(txtBoxNuit));
-            Modele.AjoutLigneFraisForfait(txtId.Text, txtMois.Text, Convert.ToInt32(txtAnnee.Text), cbRegion.ValueMember, Convert.ToInt32(txtBoxRepas));
-            Modele.AjoutLigneFraisForfait(txtId.Text, txtMois.Text, Convert.ToInt32(txtAnnee.Text), cbVehicule.ValueMember, Convert.ToInt32(txtBoxKM));
-            //Ligne hors forfait
-            Modele.AjoutLigneFraisHorsForfait(Modele.idHorsforfait, txtId.Text, txtMois.Text, Convert.ToInt32(txtAnnee.Text), txtBoxLibel1.Text, Convert.ToDateTime(txtBoxD1.Text), Convert.ToDecimal(txtBoxMontant1.Text));
-            Modele.AjoutLigneFraisHorsForfait(Modele.idHorsforfait, txtId.Text, txtMois.Text, Convert.ToInt32(txtAnnee.Text), txtBoxLibel2.Text, Convert.ToDateTime(txtBoxD2.Text), Convert.ToDecimal(txtBoxMontant2.Text));
-            Modele.AjoutLigneFraisHorsForfait(Modele.idHorsforfait, txtId.Text, txtMois.Text, Convert.ToInt32(txtAnnee.Text), txtBoxLibel3.Text, Convert.ToDateTime(txtBoxD3.Text), Convert.ToDecimal(txtBoxMontant3.Text));
-            Modele.AjoutLigneFraisHorsForfait(Modele.idHorsforfait, txtId.Text, txtMois.Text, Convert.ToInt32(txtAnnee.Text), txtBoxLibel4.Text, Convert.ToDateTime(txtBoxD4.Text), Convert.ToDecimal(txtBoxMontant4.Text));
-            Modele.AjoutLigneFraisHorsForfait(Modele.idHorsforfait, txtId.Text, txtMois.Text, Convert.ToInt32(txtAnnee.Text), txtBoxLibel5.Text, Convert.ToDateTime(txtBoxD5.Text), Convert.ToDecimal(txtBoxMontant5.Text));          
-            //Création Fiche de Frais
-            // soumettreFiche( txtId.Text, txtMois.Text, Convert.ToInt32(txtAnnee.Text), int unNbJustificatifs = 0, decimal unMontantValide = 0)
+            bool erreur = false;
+            int unNbJustificatifs = 0;
+            decimal unMontantValide = 0;
+            if (txtId.TextLength > 0 && txtMois.TextLength > 0 && txtNom.TextLength > 0 && txtAnnee.TextLength > 0)
+            {
+                //Ligne frais forfait 
+                bool erreurLigneNuit = Modele.AjoutLigneFraisForfait(txtId.Text, txtMois.Text, Convert.ToInt32(txtAnnee.Text), cbRegion.ValueMember, Convert.ToInt32(txtBoxNuit));
+                unMontantValide = Convert.ToInt32(TotalNuit);
+                bool erreurLigneRepas = Modele.AjoutLigneFraisForfait(txtId.Text, txtMois.Text, Convert.ToInt32(txtAnnee.Text), cbRegion.ValueMember, Convert.ToInt32(txtBoxRepas));
+                unMontantValide += Convert.ToInt32(totalRepas);
+                bool erreurLigneKm = Modele.AjoutLigneFraisForfait(txtId.Text, txtMois.Text, Convert.ToInt32(txtAnnee.Text), cbVehicule.ValueMember, Convert.ToInt32(txtBoxKM));
+                unMontantValide += Convert.ToInt32(TotalKm);
+                bool erreurLigneRelais = Modele.AjoutLigneFraisForfait(txtId.Text, txtMois.Text, Convert.ToInt32(txtAnnee.Text), cbRegion.ValueMember, Convert.ToInt32(txtBoxEtape));
+                unMontantValide += Convert.ToInt32(totalRelais);
+                //Ligne hors forfait
+                bool erreurLigneHorsForfait1 = Modele.AjoutLigneFraisHorsForfait(Modele.idHorsforfait, txtId.Text, txtMois.Text, Convert.ToInt32(txtAnnee.Text), txtBoxLibel1.Text, Convert.ToDateTime(txtBoxD1.Text), Convert.ToDecimal(txtBoxMontant1.Text));
+                unMontantValide += Convert.ToInt32(txtBoxD1);
+                bool erreurLigneHorsForfait2 = Modele.AjoutLigneFraisHorsForfait(Modele.idHorsforfait, txtId.Text, txtMois.Text, Convert.ToInt32(txtAnnee.Text), txtBoxLibel2.Text, Convert.ToDateTime(txtBoxD2.Text), Convert.ToDecimal(txtBoxMontant2.Text));
+                unMontantValide += Convert.ToInt32(txtBoxD2);
+                bool erreurLigneHorsForfait3 = Modele.AjoutLigneFraisHorsForfait(Modele.idHorsforfait, txtId.Text, txtMois.Text, Convert.ToInt32(txtAnnee.Text), txtBoxLibel3.Text, Convert.ToDateTime(txtBoxD3.Text), Convert.ToDecimal(txtBoxMontant3.Text));
+                unMontantValide += Convert.ToInt32(txtBoxD3);
+                bool erreurLigneHorsForfait4 = Modele.AjoutLigneFraisHorsForfait(Modele.idHorsforfait, txtId.Text, txtMois.Text, Convert.ToInt32(txtAnnee.Text), txtBoxLibel4.Text, Convert.ToDateTime(txtBoxD4.Text), Convert.ToDecimal(txtBoxMontant4.Text));
+                unMontantValide += Convert.ToInt32(txtBoxD4);
+                bool erreurLigneHorsForfait5 = Modele.AjoutLigneFraisHorsForfait(Modele.idHorsforfait, txtId.Text, txtMois.Text, Convert.ToInt32(txtAnnee.Text), txtBoxLibel5.Text, Convert.ToDateTime(txtBoxD5.Text), Convert.ToDecimal(txtBoxMontant5.Text));
+                unMontantValide += Convert.ToInt32(txtBoxD5);
+                //Création Fiche de Frais
+                bool erreurFiche = Modele.soumettreFiche(txtId.Text, txtMois.Text, Convert.ToInt32(txtAnnee.Text), unNbJustificatifs, unMontantValide);
+                if(erreurLigneNuit && erreurLigneRepas && erreurLigneKm && erreurLigneRelais && erreurLigneHorsForfait1 && erreurLigneHorsForfait2 && erreurLigneHorsForfait3 && erreurLigneHorsForfait4)
+                {
+                    MessageBox.Show("Aucun Frais à été correctement rempli");
+                }
+            }else
+            {
+                erreur = true;
+            }
+            if(erreur)
+            {
+                MessageBox.Show("Le Matricule, nom, mois et année doivent être remplis");
+            }
         }
 
         private void FormFicheFrais_Load(object sender, EventArgs e)
@@ -51,6 +78,17 @@ namespace PPE_Manitou
             cbRegion.DisplayMember = "libRegion";
             bsRegion.DataSource = Modele.listeRegion();
             cbRegion.DataSource = bsRegion;
+
+            cb_ListeFiche.ValueMember = "idVisiteur mois annee";
+            cb_ListeFiche.DisplayMember = "mois";
+            bsFicheFrais.DataSource = Modele.listeFicheFrais();
+            cb_ListeFiche.DataSource = bsFicheFrais;
+
+            cbVehicule.ValueMember = "id";
+            cbVehicule.DisplayMember = "libelle";
+            //bsVehicule.DataSource = Modele.listeVehicule();
+            cbVehicule.DataSource = bsVehicule;
+
         }
     }
 }

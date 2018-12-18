@@ -21,6 +21,7 @@ namespace PPE_Manitou
         public static fichefrais UneFichefrais { get => UneFichefrais; set => UneFichefrais = value; }
         public static LigneFraisForfait UneLigneFraisForfait { get => UneLigneFraisForfait; set => UneLigneFraisForfait = value; }
         public static LigneFraisHorsForfait UneLigneFraisHorsForfait { get => UneLigneFraisHorsForfait; set => UneLigneFraisHorsForfait = value; }
+        public static FraisForfait unFraisForfait { get => unFraisForfait; set => unFraisForfait = value; }
         public static int idHorsforfait;
         public static List<Visiteur> listeVisiteur()
         {
@@ -30,6 +31,17 @@ namespace PPE_Manitou
         {
             return maConnexion.Region.ToList();
         }
+        public static List<fichefrais> listeFicheFrais()
+        {
+            return maConnexion.fichefrais.ToList();
+        }
+        /*public static List<FraisForfait> listeVehicule()
+        {
+            var LQuery = maConnexion.FraisForfait.ToList()
+                            .Where(x => x.TypeForfait == "KM")
+                           .Select(x => new { x.id, x.libelle, x.montant, x.TypeForfait, x.idRegion });
+            return LQuery.ToList();
+        }*/
         public static bool connection(string id, string mp)
         {
             bool vretour = false;
@@ -66,7 +78,7 @@ namespace PPE_Manitou
         }
         public static bool soumettreFiche(string unIdVisiteur, string unMois, int uneAnnee, int unNbJustificatifs = 0, decimal unMontantValide = 0 ,string unIdEtat = "CR")
         {
-            bool vretour = true;
+            bool vretour = false;
             try
             {
                 UneFichefrais = new fichefrais();
@@ -81,12 +93,13 @@ namespace PPE_Manitou
             }
             catch (Exception ex)
             {
-                vretour = false;
+                vretour = true;
             }
             return vretour;
         }
-        public static void AjoutLigneFraisForfait(string unIdVisiteur, string unMois, int uneAnnee, string unIdFraisForfait, int uneQuantite)
+        public static bool AjoutLigneFraisForfait(string unIdVisiteur, string unMois, int uneAnnee, string unIdFraisForfait, int uneQuantite)
         {
+            bool vretour = false;
             try
             {
                 UneLigneFraisForfait = new LigneFraisForfait();
@@ -100,11 +113,13 @@ namespace PPE_Manitou
             }
             catch (Exception ex)
             {
-                
+                vretour = true;
             }
+            return vretour;
         }
-        public static void AjoutLigneFraisHorsForfait(int unId, string unIdVisiteur,string unMois, int uneAnnee, string unLibelle, DateTime uneDate, Decimal unMontant)
+        public static bool AjoutLigneFraisHorsForfait(int unId, string unIdVisiteur,string unMois, int uneAnnee, string unLibelle, DateTime uneDate, Decimal unMontant)
         {
+            bool vretour = false;
             try
             {
                 UneLigneFraisHorsForfait = new LigneFraisHorsForfait();
@@ -120,8 +135,9 @@ namespace PPE_Manitou
             }
             catch (Exception ex)
             {
-                
+                vretour = true;
             }
+            return vretour;
         }
     }
 }
