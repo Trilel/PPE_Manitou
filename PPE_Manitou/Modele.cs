@@ -22,7 +22,12 @@ namespace PPE_Manitou
         public static LigneFraisForfait UneLigneFraisForfait { get => UneLigneFraisForfait; set => UneLigneFraisForfait = value; }
         public static LigneFraisHorsForfait UneLigneFraisHorsForfait { get => UneLigneFraisHorsForfait; set => UneLigneFraisHorsForfait = value; }
         public static FraisForfait unFraisForfait { get => unFraisForfait; set => unFraisForfait = value; }
+        public static MEDECIN unMedecin { get => unMedecin; set => unMedecin = value; }
+        public static Laboratoire unLaboratoire { get => unLaboratoire; set => unLaboratoire = value; }
+        public static Visiteur unVisiteur { get => unVisiteur; set => unVisiteur = value; }
+        public static MEDICAMENT unMedicament { get => unMedicament; set => unMedicament = value; }
         public static int idHorsforfait;
+      //  public static MEDECIN lesMedecins { get => unmedecin; set => unMedecin = value; }
         public static List<Visiteur> listeVisiteur()
         {
             return maConnexion.Visiteur.ToList();
@@ -34,6 +39,19 @@ namespace PPE_Manitou
         public static List<fichefrais> listeFicheFrais()
         {
             return maConnexion.fichefrais.ToList();
+        }
+
+        public static List<MEDECIN> listeMedecins()
+        {
+            return maConnexion.MEDECIN.ToList();
+        }
+        public static List<Laboratoire> listeLaboratoire()
+        {
+            return maConnexion.Laboratoire.ToList();
+        }
+        public static List<MEDICAMENT> listeMedicaments()
+        {
+            return maConnexion.MEDICAMENT.ToList();
         }
         /*public static List<FraisForfait> listeVehicule()
         {
@@ -65,6 +83,10 @@ namespace PPE_Manitou
                            .Select(x => new { x.idVisiteur, x.idLabo, x.nom, x.prenom, x.rue, x.cp, x.ville, x.dateEmbauche, x.identifiant, x.password });
             return LQuery.ToList();
         }
+
+
+
+
         private static string GetMd5Hash(string PasswdSaisi)
         {
             byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(PasswdSaisi);
@@ -138,6 +160,30 @@ namespace PPE_Manitou
                 vretour = true;
             }
             return vretour;
+        }
+
+        public static Object lesNomsMedecins(int idMedecin)
+        {
+            var LQuery = maConnexion.MEDECIN.ToList()
+                           .Where(x => x.idMedecin == idMedecin)
+                           .Select(x => new { x.nom, x.prenom, x.adresse, x.tel, x.idSpecialite, x.departement});
+            return LQuery.ToList();
+        }
+
+        public static Object lesNomsMedicaments(string idMedicament)
+        {
+            var LQuery = maConnexion.MEDICAMENT.ToList()
+                           .Where(x => x.idMedicament == idMedicament)
+                           .Select(x => new { x.nomCommercial, x.idFamille, x.composition, x.effets, x.contreIndications,/*x.prix*/});
+            return LQuery.ToList();
+        }
+
+        public static Object leLaboratoire(int idLaboratoire)
+        {
+            var LQuery = maConnexion.Laboratoire.ToList()
+                           .Where(x => x.idLabo == idLaboratoire)
+                           .Select(x => new {x.idLabo, x.nomLabo });
+            return LQuery.ToList();
         }
     }
 }

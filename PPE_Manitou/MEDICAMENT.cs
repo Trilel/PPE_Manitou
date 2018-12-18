@@ -26,6 +26,7 @@ namespace PPE_Manitou
         public string composition { get; set; }
         public string effets { get; set; }
         public string contreIndications { get; set; }
+        public Nullable<int> prix { get; set; }
     
         public virtual FAMILLE FAMILLE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

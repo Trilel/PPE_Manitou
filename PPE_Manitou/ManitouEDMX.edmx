@@ -97,6 +97,7 @@
           <Property Name="composition" Type="varchar" MaxLength="256" Nullable="false" />
           <Property Name="effets" Type="varchar" MaxLength="256" Nullable="false" />
           <Property Name="contreIndications" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="prix" Type="int" />
         </EntityType>
         <EntityType Name="MOTIF">
           <Key>
@@ -705,6 +706,7 @@
           <Property Name="contreIndications" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="FAMILLE" Relationship="ManitouModel.medicament_fk" FromRole="MEDICAMENT" ToRole="FAMILLE" />
           <NavigationProperty Name="OFFRIR" Relationship="ManitouModel.offrir_fk2" FromRole="MEDICAMENT" ToRole="OFFRIR" />
+          <Property Name="prix" Type="Int32" />
         </EntityType>
         <EntityType Name="MOTIF">
           <Key>
@@ -1102,6 +1104,7 @@
           <EntitySetMapping Name="MEDICAMENT">
             <EntityTypeMapping TypeName="ManitouModel.MEDICAMENT">
               <MappingFragment StoreEntitySet="MEDICAMENT">
+                <ScalarProperty Name="prix" ColumnName="prix" />
                 <ScalarProperty Name="contreIndications" ColumnName="contreIndications" />
                 <ScalarProperty Name="effets" ColumnName="effets" />
                 <ScalarProperty Name="composition" ColumnName="composition" />

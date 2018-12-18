@@ -34,7 +34,6 @@
             this.lbl_Nom = new System.Windows.Forms.Label();
             this.lbl_Prenom = new System.Windows.Forms.Label();
             this.lbl_Adresse = new System.Windows.Forms.Label();
-            this.lbl_Ville = new System.Windows.Forms.Label();
             this.lbl_CoeffNotoriete = new System.Windows.Forms.Label();
             this.lbl_LieuExercice = new System.Windows.Forms.Label();
             this.cbo_Chercher = new System.Windows.Forms.ComboBox();
@@ -43,8 +42,6 @@
             this.txt_Numero = new System.Windows.Forms.TextBox();
             this.txt_Prenom = new System.Windows.Forms.TextBox();
             this.txt_Adresse = new System.Windows.Forms.TextBox();
-            this.txt_VilleCodePostal = new System.Windows.Forms.TextBox();
-            this.txt_Ville = new System.Windows.Forms.TextBox();
             this.txt_CoeffNotoriete = new System.Windows.Forms.TextBox();
             this.cbo_LieuExercice = new System.Windows.Forms.ComboBox();
             this.btn_Precedent = new System.Windows.Forms.Button();
@@ -100,19 +97,10 @@
             this.lbl_Adresse.TabIndex = 4;
             this.lbl_Adresse.Text = "ADRESSE";
             // 
-            // lbl_Ville
-            // 
-            this.lbl_Ville.AutoSize = true;
-            this.lbl_Ville.Location = new System.Drawing.Point(13, 284);
-            this.lbl_Ville.Name = "lbl_Ville";
-            this.lbl_Ville.Size = new System.Drawing.Size(36, 13);
-            this.lbl_Ville.TabIndex = 5;
-            this.lbl_Ville.Text = "VILLE";
-            // 
             // lbl_CoeffNotoriete
             // 
             this.lbl_CoeffNotoriete.AutoSize = true;
-            this.lbl_CoeffNotoriete.Location = new System.Drawing.Point(13, 329);
+            this.lbl_CoeffNotoriete.Location = new System.Drawing.Point(13, 282);
             this.lbl_CoeffNotoriete.Name = "lbl_CoeffNotoriete";
             this.lbl_CoeffNotoriete.Size = new System.Drawing.Size(110, 13);
             this.lbl_CoeffNotoriete.TabIndex = 6;
@@ -121,7 +109,7 @@
             // lbl_LieuExercice
             // 
             this.lbl_LieuExercice.AutoSize = true;
-            this.lbl_LieuExercice.Location = new System.Drawing.Point(13, 376);
+            this.lbl_LieuExercice.Location = new System.Drawing.Point(13, 329);
             this.lbl_LieuExercice.Name = "lbl_LieuExercice";
             this.lbl_LieuExercice.Size = new System.Drawing.Size(97, 13);
             this.lbl_LieuExercice.TabIndex = 7;
@@ -138,7 +126,7 @@
             // 
             // txt_Nom
             // 
-            this.txt_Nom.Location = new System.Drawing.Point(185, 148);
+            this.txt_Nom.Location = new System.Drawing.Point(185, 151);
             this.txt_Nom.Name = "txt_Nom";
             this.txt_Nom.Size = new System.Drawing.Size(100, 20);
             this.txt_Nom.TabIndex = 9;
@@ -170,26 +158,12 @@
             // 
             this.txt_Adresse.Location = new System.Drawing.Point(185, 238);
             this.txt_Adresse.Name = "txt_Adresse";
-            this.txt_Adresse.Size = new System.Drawing.Size(100, 20);
+            this.txt_Adresse.Size = new System.Drawing.Size(436, 20);
             this.txt_Adresse.TabIndex = 13;
-            // 
-            // txt_VilleCodePostal
-            // 
-            this.txt_VilleCodePostal.Location = new System.Drawing.Point(185, 281);
-            this.txt_VilleCodePostal.Name = "txt_VilleCodePostal";
-            this.txt_VilleCodePostal.Size = new System.Drawing.Size(100, 20);
-            this.txt_VilleCodePostal.TabIndex = 14;
-            // 
-            // txt_Ville
-            // 
-            this.txt_Ville.Location = new System.Drawing.Point(291, 281);
-            this.txt_Ville.Name = "txt_Ville";
-            this.txt_Ville.Size = new System.Drawing.Size(100, 20);
-            this.txt_Ville.TabIndex = 15;
             // 
             // txt_CoeffNotoriete
             // 
-            this.txt_CoeffNotoriete.Location = new System.Drawing.Point(185, 326);
+            this.txt_CoeffNotoriete.Location = new System.Drawing.Point(185, 279);
             this.txt_CoeffNotoriete.Name = "txt_CoeffNotoriete";
             this.txt_CoeffNotoriete.Size = new System.Drawing.Size(100, 20);
             this.txt_CoeffNotoriete.TabIndex = 16;
@@ -197,7 +171,7 @@
             // cbo_LieuExercice
             // 
             this.cbo_LieuExercice.FormattingEnabled = true;
-            this.cbo_LieuExercice.Location = new System.Drawing.Point(185, 373);
+            this.cbo_LieuExercice.Location = new System.Drawing.Point(185, 326);
             this.cbo_LieuExercice.Name = "cbo_LieuExercice";
             this.cbo_LieuExercice.Size = new System.Drawing.Size(121, 21);
             this.cbo_LieuExercice.TabIndex = 17;
@@ -232,7 +206,7 @@
             // 
             // Praticiens
             // 
-            this.Praticiens.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
+            this.Praticiens.DataSource = typeof(PPE_Manitou.MEDECIN);
             // 
             // FormPracticiens
             // 
@@ -244,8 +218,6 @@
             this.Controls.Add(this.btn_Precedent);
             this.Controls.Add(this.cbo_LieuExercice);
             this.Controls.Add(this.txt_CoeffNotoriete);
-            this.Controls.Add(this.txt_Ville);
-            this.Controls.Add(this.txt_VilleCodePostal);
             this.Controls.Add(this.txt_Adresse);
             this.Controls.Add(this.txt_Prenom);
             this.Controls.Add(this.txt_Numero);
@@ -254,7 +226,6 @@
             this.Controls.Add(this.cbo_Chercher);
             this.Controls.Add(this.lbl_LieuExercice);
             this.Controls.Add(this.lbl_CoeffNotoriete);
-            this.Controls.Add(this.lbl_Ville);
             this.Controls.Add(this.lbl_Adresse);
             this.Controls.Add(this.lbl_Prenom);
             this.Controls.Add(this.lbl_Nom);
@@ -262,6 +233,7 @@
             this.Controls.Add(this.lbl_Practiciens);
             this.Name = "FormPracticiens";
             this.Text = "FormPracticiens";
+            this.Load += new System.EventHandler(this.FormPracticiens_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Praticiens)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -275,7 +247,6 @@
         private System.Windows.Forms.Label lbl_Nom;
         private System.Windows.Forms.Label lbl_Prenom;
         private System.Windows.Forms.Label lbl_Adresse;
-        private System.Windows.Forms.Label lbl_Ville;
         private System.Windows.Forms.Label lbl_CoeffNotoriete;
         private System.Windows.Forms.Label lbl_LieuExercice;
         private System.Windows.Forms.ComboBox cbo_Chercher;
@@ -284,8 +255,6 @@
         private System.Windows.Forms.TextBox txt_Numero;
         private System.Windows.Forms.TextBox txt_Prenom;
         private System.Windows.Forms.TextBox txt_Adresse;
-        private System.Windows.Forms.TextBox txt_VilleCodePostal;
-        private System.Windows.Forms.TextBox txt_Ville;
         private System.Windows.Forms.TextBox txt_CoeffNotoriete;
         private System.Windows.Forms.ComboBox cbo_LieuExercice;
         private System.Windows.Forms.Button btn_Precedent;

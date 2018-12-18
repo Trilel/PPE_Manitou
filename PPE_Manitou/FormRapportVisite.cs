@@ -19,7 +19,9 @@ namespace PPE_Manitou
 
         private void FormRapportVisite_Load(object sender, EventArgs e)
         {
-
+            cbo_Practicien.ValueMember = "idMedecin";//permet de stocker l'identifiant
+            cbo_Practicien.DisplayMember = "nom";
+            cbo_Practicien.DataSource = Modele.listeMedecins();
         }
 
         private void btn_Fermer_Click(object sender, EventArgs e)
@@ -27,6 +29,11 @@ namespace PPE_Manitou
             this.Close();
             FormGestionDesComptesRendus f = new FormGestionDesComptesRendus();
             f.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Le rapport a bien été ajouté !");
         }
     }
 }
