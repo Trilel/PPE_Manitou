@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lbl_RapportVisite = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Txt_NumRapport = new System.Windows.Forms.TextBox();
@@ -41,6 +42,11 @@
             this.txt_Bilan = new System.Windows.Forms.TextBox();
             this.btn_Details = new System.Windows.Forms.Button();
             this.btn_Fermer = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.rapportPraticien = new System.Windows.Forms.BindingSource(this.components);
+            this.Praticien = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.rapportPraticien)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Praticien)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_RapportVisite
@@ -152,11 +158,30 @@
             this.btn_Fermer.UseVisualStyleBackColor = true;
             this.btn_Fermer.Click += new System.EventHandler(this.btn_Fermer_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(106, 251);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Ajouter";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // rapportPraticien
+            // 
+            this.rapportPraticien.DataSource = typeof(PPE_Manitou.MEDECIN);
+            // 
+            // Praticien
+            // 
+            this.Praticien.DataSource = typeof(PPE_Manitou.MEDECIN);
+            // 
             // FormRapportVisite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_Fermer);
             this.Controls.Add(this.btn_Details);
             this.Controls.Add(this.txt_Bilan);
@@ -173,6 +198,8 @@
             this.Name = "FormRapportVisite";
             this.Text = "FormRapportVisite";
             this.Load += new System.EventHandler(this.FormRapportVisite_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.rapportPraticien)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Praticien)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,5 +220,8 @@
         private System.Windows.Forms.TextBox txt_Bilan;
         private System.Windows.Forms.Button btn_Details;
         private System.Windows.Forms.Button btn_Fermer;
+        private System.Windows.Forms.BindingSource rapportPraticien;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.BindingSource Praticien;
     }
 }

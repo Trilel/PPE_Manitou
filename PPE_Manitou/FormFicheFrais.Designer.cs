@@ -189,7 +189,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 218F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 206F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 210F));
             this.tableLayoutPanel2.Controls.Add(this.MontantNuit, 2, 1);
             this.tableLayoutPanel2.Controls.Add(this.MontantRepas, 2, 2);
             this.tableLayoutPanel2.Controls.Add(this.label20, 0, 3);
@@ -226,7 +226,7 @@
             // 
             this.MontantNuit.AutoSize = true;
             this.MontantNuit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MontantNuit.Location = new System.Drawing.Point(369, 34);
+            this.MontantNuit.Location = new System.Drawing.Point(365, 34);
             this.MontantNuit.Name = "MontantNuit";
             this.MontantNuit.Size = new System.Drawing.Size(58, 20);
             this.MontantNuit.TabIndex = 11;
@@ -236,7 +236,7 @@
             // 
             this.MontantRepas.AutoSize = true;
             this.MontantRepas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MontantRepas.Location = new System.Drawing.Point(369, 77);
+            this.MontantRepas.Location = new System.Drawing.Point(365, 77);
             this.MontantRepas.Name = "MontantRepas";
             this.MontantRepas.Size = new System.Drawing.Size(49, 20);
             this.MontantRepas.TabIndex = 12;
@@ -255,9 +255,9 @@
             // txtBoxNuit
             // 
             this.txtBoxNuit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBoxNuit.Location = new System.Drawing.Point(187, 44);
+            this.txtBoxNuit.Location = new System.Drawing.Point(185, 44);
             this.txtBoxNuit.Name = "txtBoxNuit";
-            this.txtBoxNuit.Size = new System.Drawing.Size(174, 20);
+            this.txtBoxNuit.Size = new System.Drawing.Size(172, 20);
             this.txtBoxNuit.TabIndex = 15;
             this.txtBoxNuit.TextChanged += new System.EventHandler(this.txtBoxNuit_TextChanged);
             // 
@@ -286,7 +286,7 @@
             this.label25.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(413, 7);
+            this.label25.Location = new System.Drawing.Point(409, 7);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(124, 20);
             this.label25.TabIndex = 2;
@@ -297,7 +297,7 @@
             this.label26.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(239, 7);
+            this.label26.Location = new System.Drawing.Point(236, 7);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(70, 20);
             this.label26.TabIndex = 1;
@@ -319,7 +319,7 @@
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(667, 7);
+            this.label22.Location = new System.Drawing.Point(665, 7);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(44, 20);
             this.label22.TabIndex = 11;
@@ -328,24 +328,24 @@
             // txtBoxRepas
             // 
             this.txtBoxRepas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBoxRepas.Location = new System.Drawing.Point(187, 85);
+            this.txtBoxRepas.Location = new System.Drawing.Point(185, 85);
             this.txtBoxRepas.Name = "txtBoxRepas";
-            this.txtBoxRepas.Size = new System.Drawing.Size(174, 20);
+            this.txtBoxRepas.Size = new System.Drawing.Size(172, 20);
             this.txtBoxRepas.TabIndex = 16;
             // 
             // txtBoxKM
             // 
             this.txtBoxKM.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBoxKM.Location = new System.Drawing.Point(187, 119);
+            this.txtBoxKM.Location = new System.Drawing.Point(185, 119);
             this.txtBoxKM.Name = "txtBoxKM";
-            this.txtBoxKM.Size = new System.Drawing.Size(174, 20);
+            this.txtBoxKM.Size = new System.Drawing.Size(172, 20);
             this.txtBoxKM.TabIndex = 18;
             // 
             // cbVehicule
             // 
             this.cbVehicule.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbVehicule.FormattingEnabled = true;
-            this.cbVehicule.Location = new System.Drawing.Point(425, 119);
+            this.cbVehicule.Location = new System.Drawing.Point(421, 119);
             this.cbVehicule.Name = "cbVehicule";
             this.cbVehicule.Size = new System.Drawing.Size(99, 21);
             this.cbVehicule.TabIndex = 17;
@@ -363,15 +363,15 @@
             // txtBoxEtape
             // 
             this.txtBoxEtape.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBoxEtape.Location = new System.Drawing.Point(187, 148);
+            this.txtBoxEtape.Location = new System.Drawing.Point(185, 148);
             this.txtBoxEtape.Name = "txtBoxEtape";
-            this.txtBoxEtape.Size = new System.Drawing.Size(174, 20);
+            this.txtBoxEtape.Size = new System.Drawing.Size(172, 20);
             this.txtBoxEtape.TabIndex = 20;
             // 
             // montantRelais
             // 
             this.montantRelais.AutoSize = true;
-            this.montantRelais.Location = new System.Drawing.Point(369, 145);
+            this.montantRelais.Location = new System.Drawing.Point(365, 145);
             this.montantRelais.Name = "montantRelais";
             this.montantRelais.Size = new System.Drawing.Size(41, 13);
             this.montantRelais.TabIndex = 21;
@@ -380,7 +380,7 @@
             // TotalNuit
             // 
             this.TotalNuit.AutoSize = true;
-            this.TotalNuit.Location = new System.Drawing.Point(589, 34);
+            this.TotalNuit.Location = new System.Drawing.Point(585, 34);
             this.TotalNuit.Name = "TotalNuit";
             this.TotalNuit.Size = new System.Drawing.Size(41, 13);
             this.TotalNuit.TabIndex = 22;
@@ -389,7 +389,7 @@
             // totalRepas
             // 
             this.totalRepas.AutoSize = true;
-            this.totalRepas.Location = new System.Drawing.Point(589, 77);
+            this.totalRepas.Location = new System.Drawing.Point(585, 77);
             this.totalRepas.Name = "totalRepas";
             this.totalRepas.Size = new System.Drawing.Size(41, 13);
             this.totalRepas.TabIndex = 23;
@@ -398,7 +398,7 @@
             // TotalKm
             // 
             this.TotalKm.AutoSize = true;
-            this.TotalKm.Location = new System.Drawing.Point(589, 116);
+            this.TotalKm.Location = new System.Drawing.Point(585, 116);
             this.TotalKm.Name = "TotalKm";
             this.TotalKm.Size = new System.Drawing.Size(41, 13);
             this.TotalKm.TabIndex = 24;
@@ -407,7 +407,7 @@
             // totalRelais
             // 
             this.totalRelais.AutoSize = true;
-            this.totalRelais.Location = new System.Drawing.Point(589, 145);
+            this.totalRelais.Location = new System.Drawing.Point(585, 145);
             this.totalRelais.Name = "totalRelais";
             this.totalRelais.Size = new System.Drawing.Size(41, 13);
             this.totalRelais.TabIndex = 25;
@@ -420,7 +420,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.89005F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.10995F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 229F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 237F));
             this.tableLayoutPanel1.Controls.Add(this.txtBoxMontant5, 2, 5);
             this.tableLayoutPanel1.Controls.Add(this.txtBoxLibel5, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.txtBoxD5, 0, 5);
@@ -454,91 +454,91 @@
             // 
             // txtBoxMontant5
             // 
-            this.txtBoxMontant5.Location = new System.Drawing.Point(525, 177);
+            this.txtBoxMontant5.Location = new System.Drawing.Point(517, 177);
             this.txtBoxMontant5.Name = "txtBoxMontant5";
             this.txtBoxMontant5.Size = new System.Drawing.Size(176, 20);
             this.txtBoxMontant5.TabIndex = 29;
             // 
             // txtBoxLibel5
             // 
-            this.txtBoxLibel5.Location = new System.Drawing.Point(167, 177);
+            this.txtBoxLibel5.Location = new System.Drawing.Point(165, 177);
             this.txtBoxLibel5.Name = "txtBoxLibel5";
-            this.txtBoxLibel5.Size = new System.Drawing.Size(349, 20);
+            this.txtBoxLibel5.Size = new System.Drawing.Size(343, 20);
             this.txtBoxLibel5.TabIndex = 28;
             // 
             // txtBoxD5
             // 
             this.txtBoxD5.Location = new System.Drawing.Point(6, 177);
             this.txtBoxD5.Name = "txtBoxD5";
-            this.txtBoxD5.Size = new System.Drawing.Size(152, 20);
+            this.txtBoxD5.Size = new System.Drawing.Size(150, 20);
             this.txtBoxD5.TabIndex = 27;
             // 
             // txtBoxMontant4
             // 
-            this.txtBoxMontant4.Location = new System.Drawing.Point(525, 142);
+            this.txtBoxMontant4.Location = new System.Drawing.Point(517, 142);
             this.txtBoxMontant4.Name = "txtBoxMontant4";
             this.txtBoxMontant4.Size = new System.Drawing.Size(176, 20);
             this.txtBoxMontant4.TabIndex = 26;
             // 
             // txtBoxLibel4
             // 
-            this.txtBoxLibel4.Location = new System.Drawing.Point(167, 142);
+            this.txtBoxLibel4.Location = new System.Drawing.Point(165, 142);
             this.txtBoxLibel4.Name = "txtBoxLibel4";
-            this.txtBoxLibel4.Size = new System.Drawing.Size(349, 20);
+            this.txtBoxLibel4.Size = new System.Drawing.Size(343, 20);
             this.txtBoxLibel4.TabIndex = 25;
             // 
             // txtBoxD4
             // 
             this.txtBoxD4.Location = new System.Drawing.Point(6, 142);
             this.txtBoxD4.Name = "txtBoxD4";
-            this.txtBoxD4.Size = new System.Drawing.Size(152, 20);
+            this.txtBoxD4.Size = new System.Drawing.Size(150, 20);
             this.txtBoxD4.TabIndex = 24;
             // 
             // txtBoxMontant3
             // 
-            this.txtBoxMontant3.Location = new System.Drawing.Point(525, 108);
+            this.txtBoxMontant3.Location = new System.Drawing.Point(517, 108);
             this.txtBoxMontant3.Name = "txtBoxMontant3";
             this.txtBoxMontant3.Size = new System.Drawing.Size(176, 20);
             this.txtBoxMontant3.TabIndex = 23;
             // 
             // txtBoxLibel3
             // 
-            this.txtBoxLibel3.Location = new System.Drawing.Point(167, 108);
+            this.txtBoxLibel3.Location = new System.Drawing.Point(165, 108);
             this.txtBoxLibel3.Name = "txtBoxLibel3";
-            this.txtBoxLibel3.Size = new System.Drawing.Size(349, 20);
+            this.txtBoxLibel3.Size = new System.Drawing.Size(343, 20);
             this.txtBoxLibel3.TabIndex = 22;
             // 
             // txtBoxD3
             // 
             this.txtBoxD3.Location = new System.Drawing.Point(6, 108);
             this.txtBoxD3.Name = "txtBoxD3";
-            this.txtBoxD3.Size = new System.Drawing.Size(152, 20);
+            this.txtBoxD3.Size = new System.Drawing.Size(150, 20);
             this.txtBoxD3.TabIndex = 21;
             // 
             // txtBoxMontant2
             // 
-            this.txtBoxMontant2.Location = new System.Drawing.Point(525, 75);
+            this.txtBoxMontant2.Location = new System.Drawing.Point(517, 75);
             this.txtBoxMontant2.Name = "txtBoxMontant2";
             this.txtBoxMontant2.Size = new System.Drawing.Size(176, 20);
             this.txtBoxMontant2.TabIndex = 20;
             // 
             // txtBoxLibel2
             // 
-            this.txtBoxLibel2.Location = new System.Drawing.Point(167, 75);
+            this.txtBoxLibel2.Location = new System.Drawing.Point(165, 75);
             this.txtBoxLibel2.Name = "txtBoxLibel2";
-            this.txtBoxLibel2.Size = new System.Drawing.Size(349, 20);
+            this.txtBoxLibel2.Size = new System.Drawing.Size(343, 20);
             this.txtBoxLibel2.TabIndex = 19;
             // 
             // txtBoxD2
             // 
             this.txtBoxD2.Location = new System.Drawing.Point(6, 75);
             this.txtBoxD2.Name = "txtBoxD2";
-            this.txtBoxD2.Size = new System.Drawing.Size(152, 20);
+            this.txtBoxD2.Size = new System.Drawing.Size(150, 20);
             this.txtBoxD2.TabIndex = 18;
             // 
             // txtBoxMontant1
             // 
-            this.txtBoxMontant1.Location = new System.Drawing.Point(525, 39);
+            this.txtBoxMontant1.Location = new System.Drawing.Point(517, 39);
             this.txtBoxMontant1.Name = "txtBoxMontant1";
             this.txtBoxMontant1.Size = new System.Drawing.Size(176, 20);
             this.txtBoxMontant1.TabIndex = 17;
@@ -547,14 +547,14 @@
             // 
             this.txtBoxD1.Location = new System.Drawing.Point(6, 39);
             this.txtBoxD1.Name = "txtBoxD1";
-            this.txtBoxD1.Size = new System.Drawing.Size(152, 20);
+            this.txtBoxD1.Size = new System.Drawing.Size(150, 20);
             this.txtBoxD1.TabIndex = 16;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(525, 3);
+            this.label6.Location = new System.Drawing.Point(517, 3);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(68, 20);
             this.label6.TabIndex = 13;
@@ -574,7 +574,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(167, 3);
+            this.label5.Location = new System.Drawing.Point(165, 3);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(54, 20);
             this.label5.TabIndex = 14;
@@ -582,9 +582,9 @@
             // 
             // txtBoxLibel1
             // 
-            this.txtBoxLibel1.Location = new System.Drawing.Point(167, 39);
+            this.txtBoxLibel1.Location = new System.Drawing.Point(165, 39);
             this.txtBoxLibel1.Name = "txtBoxLibel1";
-            this.txtBoxLibel1.Size = new System.Drawing.Size(349, 20);
+            this.txtBoxLibel1.Size = new System.Drawing.Size(343, 20);
             this.txtBoxLibel1.TabIndex = 15;
             // 
             // btnF
