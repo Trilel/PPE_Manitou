@@ -36,7 +36,7 @@ namespace PPE_Manitou
 
         private void btn_Visiteurs_Click(object sender, EventArgs e)
         {
-            FormVisiterus f = new FormVisiterus();
+            FormVisiteurs f = new FormVisiteurs();
             f.Show();
             this.Close();
         }

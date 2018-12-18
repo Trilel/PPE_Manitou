@@ -106,11 +106,11 @@
     <Compile Include="FormRapportVisite.Designer.cs">
       <DependentUpon>FormRapportVisite.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormVisiterus.cs">
+    <Compile Include="FormVisiteurs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormVisiterus.Designer.cs">
-      <DependentUpon>FormVisiterus.cs</DependentUpon>
+    <Compile Include="FormVisiteurs.Designer.cs">
+      <DependentUpon>FormVisiteurs.cs</DependentUpon>
     </Compile>
     <Compile Include="FraisForfait.cs">
       <DependentUpon>ManitouEDMX.tt</DependentUpon>
@@ -190,8 +190,8 @@
     <EmbeddedResource Include="FormRapportVisite.resx">
       <DependentUpon>FormRapportVisite.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormVisiterus.resx">
-      <DependentUpon>FormVisiterus.cs</DependentUpon>
+    <EmbeddedResource Include="FormVisiteurs.resx">
+      <DependentUpon>FormVisiteurs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

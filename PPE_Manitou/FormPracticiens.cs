@@ -33,5 +33,10 @@ namespace PPE_Manitou
         {
 
         }
+
+        private void bindingSource1_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
