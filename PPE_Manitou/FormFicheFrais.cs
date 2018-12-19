@@ -38,13 +38,13 @@ namespace PPE_Manitou
             {
                 //Ligne frais forfait 
                 bool erreurLigneNuit = Modele.AjoutLigneFraisForfait(txtId.Text, txtMois.Text, Convert.ToInt32(txtAnnee.Text), cbRegion.ValueMember, Convert.ToInt32(txtBoxNuit));
-                unMontantValide = Convert.ToInt32(TotalNuit);
+                unMontantValide = Convert.ToInt32(lbTotalNuit);
                 bool erreurLigneRepas = Modele.AjoutLigneFraisForfait(txtId.Text, txtMois.Text, Convert.ToInt32(txtAnnee.Text), cbRegion.ValueMember, Convert.ToInt32(txtBoxRepas));
-                unMontantValide += Convert.ToInt32(totalRepas);
+                unMontantValide += Convert.ToInt32(lbtotalRepas);
                 bool erreurLigneKm = Modele.AjoutLigneFraisForfait(txtId.Text, txtMois.Text, Convert.ToInt32(txtAnnee.Text), cbVehicule.ValueMember, Convert.ToInt32(txtBoxKM));
-                unMontantValide += Convert.ToInt32(TotalKm);
+                unMontantValide += Convert.ToInt32(lbTotalKm);
                 bool erreurLigneRelais = Modele.AjoutLigneFraisForfait(txtId.Text, txtMois.Text, Convert.ToInt32(txtAnnee.Text), cbRegion.ValueMember, Convert.ToInt32(txtBoxEtape));
-                unMontantValide += Convert.ToInt32(totalRelais);
+                unMontantValide += Convert.ToInt32(lbtotalRelais);
                 //Ligne hors forfait
                 bool erreurLigneHorsForfait1 = Modele.AjoutLigneFraisHorsForfait(Modele.idHorsforfait, txtId.Text, txtMois.Text, Convert.ToInt32(txtAnnee.Text), txtBoxLibel1.Text, Convert.ToDateTime(txtBoxD1.Text), Convert.ToDecimal(txtBoxMontant1.Text));
                 unMontantValide += Convert.ToInt32(txtBoxD1);
@@ -61,6 +61,10 @@ namespace PPE_Manitou
                 if(erreurLigneNuit && erreurLigneRepas && erreurLigneKm && erreurLigneRelais && erreurLigneHorsForfait1 && erreurLigneHorsForfait2 && erreurLigneHorsForfait3 && erreurLigneHorsForfait4)
                 {
                     MessageBox.Show("Aucun Frais à été correctement rempli");
+                }
+                else
+                {
+                    MessageBox.Show("La fiche a correctement été rempli");
                 }
             }else
             {
@@ -79,16 +83,34 @@ namespace PPE_Manitou
             bsRegion.DataSource = Modele.listeRegion();
             cbRegion.DataSource = bsRegion;
 
-            cb_ListeFiche.ValueMember = "idVisiteur mois annee";
-            cb_ListeFiche.DisplayMember = "mois";
+            cbListeFicheVue.ValueMember = "idVisiteur mois annee";
+            cbListeFicheVue.DisplayMember = "mois";
             bsFicheFrais.DataSource = Modele.listeFicheFrais();
-            cb_ListeFiche.DataSource = bsFicheFrais;
+            cbListeFicheVue.DataSource = bsFicheFrais;
+
+            cbListeFicheModif.ValueMember = "idVisiteur mois annee";
+            cbListeFicheModif.DisplayMember = "mois";
+            bsFicheFrais.DataSource = Modele.listeFicheFrais();
+            cbListeFicheModif.DataSource = bsFicheFrais;
 
             cbVehicule.ValueMember = "id";
             cbVehicule.DisplayMember = "libelle";
             //bsVehicule.DataSource = Modele.listeVehicule();
             cbVehicule.DataSource = bsVehicule;
 
+
+
+        }
+
+        private void btnModif_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_vueFicheFrais_Click(object sender, EventArgs e)
+        {
+            FormVueFicheFrais f = new FormVueFicheFrais();
+            f.Show();
         }
     }
 }
